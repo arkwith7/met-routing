@@ -1,9 +1,9 @@
 module.exports = {
   HOST: "localhost",
-  PORT: "1434",
-  USER: "zkoder",
-  PASSWORD: "123456",
-  DB: "bezkoder_db",
+  PORT: "1436",
+  USER: "sa",
+  PASSWORD: "infinov*1",
+  DB: "aiocr_db",
   dialect: "mssql",
   pool: {
     max: 5,
