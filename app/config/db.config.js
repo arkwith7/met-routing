@@ -1,9 +1,8 @@
 module.exports = {
   HOST: "localhost",
-  PORT: "1436",
   USER: "sa",
-  PASSWORD: "infinov*1",
-  DB: "aiocr_db",
+  PASSWORD: "infinov1*",
+  DB: "metdb",
   dialect: "mssql",
   pool: {
     max: 5,

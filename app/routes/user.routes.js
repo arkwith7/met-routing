@@ -1,32 +1,32 @@
-module.exports = app => {
-  const users = require("../controllers/user.controller.js");
+const { authJwt } = require("../middleware");
+const controller = require("../controllers/user.controller");
 
-  var router = require("express").Router();
+module.exports = function(app) {
+  app.use(function(req, res, next) {
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, Content-Type, Accept"
+    );
+    next();
+  });
 
-  // Retrieve all users
-  router.get("/", users.getAll);
+  app.get("/api/test/all", controller.allAccess);
 
-  // Retrieve a single user with id
-  router.get("/:id", users.getById);
+  app.get(
+    "/api/test/user",
+    [authJwt.verifyToken],
+    controller.userBoard
+  );
 
-  // Create a new user
-  router.post("/", user.createSchema, users.create);
+  app.get(
+    "/api/test/mod",
+    [authJwt.verifyToken, authJwt.isModerator],
+    controller.moderatorBoard
+  );
 
-  // Update a user with id
-  router.put("/:id", user.updateSchema, users.update);
-
-  // Delete a user with id
-  router.delete("/:id", users.delete);
-
-  app.use('/api/users', router);
+  app.get(
+    "/api/test/admin",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.adminBoard
+  );
 };
-
-// // routes
-
-// router.get('/', getAll);
-// router.get('/:id', getById);
-// router.post('/', createSchema, create);
-// router.put('/:id', updateSchema, update);
-// router.delete('/:id', _delete);
-
-// module.exports = router;
