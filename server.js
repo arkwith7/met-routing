@@ -1,3 +1,6 @@
+//상단에 삽입
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./app/swagger/swagger-output.json')
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
@@ -20,6 +23,9 @@ app.use(
     sameSite: 'strict'
   })
 );
+
+//하단에 삽입
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile)) // docs 대신 swagger로 수정한다.
 
 // database
 const db = require("./app/models");
