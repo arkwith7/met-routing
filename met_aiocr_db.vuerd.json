@@ -1,0 +1,936 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -192.20000000000002,
+    "scrollLeft": -98.39999999999999,
+    "zoomLevel": 0.8,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "DiseaseCD",
+        "comment": "질병코드",
+        "columns": [
+          {
+            "name": "code",
+            "comment": "질병코드값",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "67fc921e-2553-4689-9f9b-ba281b0bbd46"
+          },
+          {
+            "name": "code_name",
+            "comment": "질병명",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.93896484375,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "16dfb815-bb79-48a8-aaa3-e4546af92d5f"
+          },
+          {
+            "name": "code_name_alias",
+            "comment": "유사 질병명",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 103.9052734375,
+              "widthComment": 70.61181640625,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1ae94001-134c-4579-8f49-fc5368cc68a5"
+          },
+          {
+            "name": "body_part",
+            "comment": "신체부위",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "29917909-a368-4b9a-8dcc-8576f5c81c4a"
+          },
+          {
+            "name": "left_or_right",
+            "comment": "좌우 여부",
+            "dataType": "CHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70.64990234375,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d38f2524-aca9-4d2a-8c6c-4a26b3a46174"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 57.5,
+          "top": 11.25,
+          "zIndex": 264,
+          "widthName": 67.74267578125,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "2b8deb4d-616c-4564-ad97-c4268a857d15"
+      },
+      {
+        "name": "DocMaster",
+        "comment": "문서마스터",
+        "columns": [
+          {
+            "name": "doc_name",
+            "comment": "문서명",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 62.708984375,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "a2db5012-47e2-4304-a691-b539bd41e8df"
+          },
+          {
+            "name": "doc_class_cd",
+            "comment": "문서분류 코드",
+            "dataType": "CHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 80.76806640625,
+              "widthComment": 83.61181640625,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2c83af55-8e27-4f1c-8f4c-a5592a7a57c2"
+          },
+          {
+            "name": "doc_subclass_cd",
+            "comment": "하위분류코드",
+            "dataType": "CHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 101.72802734375,
+              "widthComment": 80,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "32893cff-7487-4361-8a1b-e25327ea429d"
+          },
+          {
+            "name": "doc_class_name",
+            "comment": "문서분류",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 99.55712890625,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "a8ef4f74-b81d-4806-9351-019aebdd34f8"
+          },
+          {
+            "name": "doc_subclass_name",
+            "comment": "하위분류명",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 120.51708984375,
+              "widthComment": 67,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "73caa936-0855-4ffe-a771-a047415acef1"
+          },
+          {
+            "name": "is_extract",
+            "comment": "분류/추출 여부",
+            "dataType": "BOOLEAN",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 87.2236328125,
+              "widthDataType": 64.8544921875,
+              "widthDefault": 60
+            },
+            "id": "a3f611c8-f7b3-41cd-8bb0-b5c4f2385081"
+          },
+          {
+            "name": "doc_name_alias",
+            "comment": "유사문서명",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 96.67529296875,
+              "widthComment": 67,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "abd3438b-3128-49a8-be99-7046174a84fe"
+          },
+          {
+            "name": "doc_keyword",
+            "comment": "문서의키워드",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 78.59716796875,
+              "widthComment": 80,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "182ee819-30f3-4e08-bced-dc8c823bc402"
+          },
+          {
+            "name": "",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "33a6b6c9-81e9-4e14-a34f-5c5eabf20487"
+          },
+          {
+            "name": "",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6fb6211a-24df-44e6-be26-9a0750962712"
+          },
+          {
+            "name": "",
+            "comment": "",
+            "dataType": "NUMERIC",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 62.66455078125,
+              "widthDefault": 60
+            },
+            "id": "5e298448-5d86-4a43-ab94-2ded0b34eac3"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 64,
+          "top": 403,
+          "zIndex": 318,
+          "widthName": 64.84814453125,
+          "widthComment": 67
+        },
+        "visible": true,
+        "id": "a8ca89f5-c2a6-4892-a352-eceb4368ba91"
+      },
+      {
+        "name": "OperationCD",
+        "comment": "수술코드",
+        "columns": [
+          {
+            "name": "code",
+            "comment": "수술코드",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "48c3d18d-19b4-485a-813e-ad5978658f3f"
+          },
+          {
+            "name": "code_name",
+            "comment": "수술명",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.93896484375,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "81ff9d9f-ab1b-48cb-ba50-c1e58c880fe4"
+          },
+          {
+            "name": "code_name_alias",
+            "comment": "유사수술명",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 103.9052734375,
+              "widthComment": 67,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "f30a4781-c480-4a91-8b4f-ad9dfce480b1"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 530.8,
+          "top": 26.6,
+          "zIndex": 295,
+          "widthName": 77.8671875,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "c7eb477f-4962-439d-9de4-e333c4d6c388"
+      },
+      {
+        "name": "Doc_extraction_items",
+        "comment": "문서추출항목",
+        "columns": [
+          {
+            "name": "item_no",
+            "comment": "문서추출항목번호",
+            "dataType": "NUMERIC",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 106,
+              "widthDataType": 62.66455078125,
+              "widthDefault": 60
+            },
+            "id": "3ddf1464-cbf1-4296-9247-657eb5a3bc7b"
+          },
+          {
+            "name": "item_label",
+            "comment": "추출항목명",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 61.25537109375,
+              "widthComment": 67,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "e87e5671-3cd9-4fcd-a12c-8f99c9f33f60"
+          },
+          {
+            "name": "item_value",
+            "comment": "추출항목값",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 64.8671875,
+              "widthComment": 67,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "2c550bcf-46f2-428e-87fd-85cc5897acb0"
+          },
+          {
+            "name": "item_type",
+            "comment": "항목값자료형",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 80,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "2c2fd761-e4ad-441b-8724-54cedfdf002f"
+          },
+          {
+            "name": "item_len",
+            "comment": "항목값길이",
+            "dataType": "NUMERIC",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 62.66455078125,
+              "widthDefault": 60
+            },
+            "id": "f9110a17-d194-4dec-bea4-353603188136"
+          },
+          {
+            "name": "before_desc",
+            "comment": "추출값전내용",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 73.55078125,
+              "widthComment": 80,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "9372fea6-8354-4a70-8acf-8a3558086ff9"
+          },
+          {
+            "name": "after_desc",
+            "comment": "추출값다음내용",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 62.70263671875,
+              "widthComment": 93,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "45a248e9-41ab-4474-97ab-610c9b0ac698"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 716.8,
+          "top": 429.6,
+          "zIndex": 383,
+          "widthName": 126.998046875,
+          "widthComment": 80
+        },
+        "visible": true,
+        "id": "01c6a722-599f-47cf-8320-e2e7c9529266"
+      },
+      {
+        "name": "InsuranceCD",
+        "comment": "보험수가코드",
+        "columns": [
+          {
+            "name": "code",
+            "comment": "수가코드",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7cd085cf-f51f-4452-bdc2-bedaa93ce657"
+          },
+          {
+            "name": "code_name",
+            "comment": "행위명",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.93896484375,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f5f3af53-3c28-411c-8581-4fa31d263455"
+          },
+          {
+            "name": "is-DB",
+            "comment": "DB생성",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "302c0187-7e9c-41a5-8c18-914886409bff"
+          },
+          {
+            "name": "is_operation",
+            "comment": "수술해당",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 72.8271484375,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "89918517-7f62-4c9c-bd36-b0b34004e710"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 568.8,
+          "top": 190.6,
+          "zIndex": 407,
+          "widthName": 77.8671875,
+          "widthComment": 80
+        },
+        "visible": true,
+        "id": "24d347c7-5ea0-4ed4-9549-45cc57bead23"
+      },
+      {
+        "name": "ocr_log",
+        "comment": "OCR처리로그",
+        "columns": [
+          {
+            "name": "ocr_time",
+            "comment": "OCR처리시간",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 82.88818359375,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "887411c3-1c1d-49c4-b0cf-8f5199e505c7"
+          },
+          {
+            "name": "is_success",
+            "comment": "OCR성공여부",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 65.578125,
+              "widthComment": 82.88818359375,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e786762c-5601-41e4-99e6-f725c043d030"
+          },
+          {
+            "name": "is_class",
+            "comment": "문서분류여부",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 80,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "c2ce3635-34b4-4a07-95fb-786ab871e2bc"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 62.4,
+          "top": 249.2,
+          "zIndex": 430,
+          "widthName": 60,
+          "widthComment": 82.88818359375
+        },
+        "visible": true,
+        "id": "1c4a7e75-d247-4ea3-9766-63e2b0ebf9c8"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "a8ca89f5-c2a6-4892-a352-eceb4368ba91",
+          "columnIds": [
+            "5e298448-5d86-4a43-ab94-2ded0b34eac3"
+          ],
+          "x": 503.59521484375,
+          "y": 550.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "01c6a722-599f-47cf-8320-e2e7c9529266",
+          "columnIds": [
+            "3ddf1464-cbf1-4296-9247-657eb5a3bc7b"
+          ],
+          "x": 716.8,
+          "y": 535.85,
+          "direction": "left"
+        },
+        "constraintName": "fk_docmaster_to_doc_extraction_items",
+        "visible": true,
+        "id": "ab21e124-ba42-4d01-b241-cd2326a9a6b2"
+      }
+    ]
+  }
+}
