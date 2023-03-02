@@ -6,3 +6,11 @@ Docker
 ERD Editor
 SQL Server(mssql)
 PlantUML
+JSON Tree Editor
+OpenAPI (Swagger) Editor
+openapi-designer
+PDF Viewer
+Prettier ESLint
+StandardJS - JavaScript Standard Style
+YAML
+nodejs
