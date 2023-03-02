@@ -7,6 +7,7 @@ const Op = db.Sequelize.Op;
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const requestIp = require('request-ip');
 
 exports.signup = async (req, res) => {
   // Save User to Database
@@ -40,6 +41,8 @@ exports.signup = async (req, res) => {
 
 exports.signin = async (req, res) => {
   try {
+    const clientIp = requestIp.getClientIp(req);
+    console.log("접속요청 IP:", clientIp);
     const user = await User.findOne({
       where: {
         username: req.body.username,

@@ -1,0 +1,17 @@
+@startuml
+scale 2
+left to right direction
+skinparam packageStyle rect
+actor Admin
+rectangle 보험청구서류관리 {
+
+    Admin -- (문서정보 및 분류기준등록)
+    Admin -- (문서정보조회)
+    Admin -- (문서분류기준수정)
+    Admin -- (문서별 추출항목 등록/수정)
+
+} 
+
+
+'scale 1.5 | scale 200 width | scale 100 height | scale [max] 200x100
+@enduml

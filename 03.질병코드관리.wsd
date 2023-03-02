@@ -1,0 +1,16 @@
+@startuml
+scale 2
+left to right direction
+skinparam packageStyle rect
+actor Admin
+rectangle 질병코드관리 {
+
+    Admin -- (질병코드목록조회)
+    Admin -- (유사 질병명 등록/수정)
+    Admin -- (질병코드상세조회)
+
+} 
+
+
+'scale 1.5 | scale 200 width | scale 100 height | scale [max] 200x100
+@enduml

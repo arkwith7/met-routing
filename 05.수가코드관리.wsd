@@ -1,0 +1,16 @@
+@startuml
+scale 2
+left to right direction
+skinparam packageStyle rect
+actor Admin
+rectangle 수가코드관리 {
+
+    Admin -- (수가코드목록조회)
+    Admin -- (수가코드 적용여부 등록/수정)
+    Admin -- (수가코드상세조회)
+
+} 
+
+
+'scale 1.5 | scale 200 width | scale 100 height | scale [max] 200x100
+@enduml

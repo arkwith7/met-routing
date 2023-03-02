@@ -1,0 +1,15 @@
+@startuml
+scale 2
+left to right direction
+skinparam packageStyle rect
+actor Metsys_EAI
+rectangle OCR_API_처리 {
+
+    Metsys_EAI -- (ADocs_OCR_API_service)
+    (ADocs_OCR_API_service) -> (OCR_Azure_Cognitive_Services): include
+
+} 
+
+
+'scale 1.5 | scale 200 width | scale 100 height | scale [max] 200x100
+@enduml

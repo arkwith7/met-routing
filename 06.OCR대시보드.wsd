@@ -1,0 +1,16 @@
+@startuml
+scale 2
+left to right direction
+skinparam packageStyle rect
+actor Admin
+rectangle OCR대시보드 {
+
+    Admin -- (일별/누적 접수처리 건수 현황)
+    Admin -- (OCR 처리 성공/실패율 - 파이차트)
+    Admin -- (OCR 처리결과 목록 조회 - 당일 접수번호별)
+
+}
+
+
+'scale 1.5 | scale 200 width | scale 100 height | scale [max] 200x100
+@enduml
