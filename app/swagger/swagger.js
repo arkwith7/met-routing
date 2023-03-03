@@ -21,5 +21,5 @@ const options = {
   },
 };
 const outputFile = './app/swagger/swagger-output.json';
-const endpointsFiles = ['./app/routes/auth.routes.js','./app/routes/user.routes.js'];
+const endpointsFiles = ['./app/routes/auth.routes.js','./app/routes/user.routes.js','./app/routes/turorial.routes.js'];
 swaggerAutogen(outputFile, endpointsFiles, options);

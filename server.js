@@ -4,6 +4,7 @@ const swaggerFile = require('./app/swagger/swagger-output.json')
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
+const logger = require('./app/config/winston');
 
 const app = express();
 
@@ -40,6 +41,7 @@ db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
+  logger.info('GET /');
   res.json({ message: "Welcome to arkwith application." });
 });
 
@@ -51,7 +53,8 @@ require("./app/routes/turorial.routes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+  logger.info(`Server listening on port ${PORT}`);
+  // console.log(`Server is running on port ${PORT}.`);
 });
 
 function initial() {
