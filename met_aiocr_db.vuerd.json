@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -192.20000000000002,
-    "scrollLeft": -98.39999999999999,
+    "scrollTop": -406.80000000000024,
+    "scrollLeft": -114.39999999999995,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -43,7 +43,7 @@
   "table": {
     "tables": [
       {
-        "name": "DiseaseCD",
+        "name": "Disease_CD",
         "comment": "질병코드",
         "columns": [
           {
@@ -212,15 +212,15 @@
           "active": false,
           "left": 1065.5,
           "top": 300,
-          "zIndex": 265,
-          "widthName": 67.74267578125,
+          "zIndex": 21,
+          "widthName": 74.97265625,
           "widthComment": 60
         },
         "visible": true,
         "id": "2b8deb4d-616c-4564-ad97-c4268a857d15"
       },
       {
-        "name": "DocMaster",
+        "name": "Doc_master",
         "comment": "문서마스터",
         "columns": [
           {
@@ -412,15 +412,15 @@
           "active": false,
           "left": 239.25,
           "top": 42,
-          "zIndex": 266,
-          "widthName": 64.84814453125,
+          "zIndex": 13,
+          "widthName": 72.078125,
           "widthComment": 67
         },
         "visible": true,
         "id": "a8ca89f5-c2a6-4892-a352-eceb4368ba91"
       },
       {
-        "name": "OperationCD",
+        "name": "Operation_CD",
         "comment": "수술코드",
         "columns": [
           {
@@ -543,8 +543,8 @@
           "active": false,
           "left": 1027.8,
           "top": 556.6,
-          "zIndex": 207,
-          "widthName": 77.8671875,
+          "zIndex": 35,
+          "widthName": 85.09716796875,
           "widthComment": 60
         },
         "visible": true,
@@ -743,7 +743,7 @@
           "active": false,
           "left": 772.8,
           "top": 41.6,
-          "zIndex": 172,
+          "zIndex": 1,
           "widthName": 126.998046875,
           "widthComment": 80
         },
@@ -751,7 +751,7 @@
         "id": "01c6a722-599f-47cf-8320-e2e7c9529266"
       },
       {
-        "name": "InsuranceCD",
+        "name": "Insurance_CD",
         "comment": "보험수가코드",
         "columns": [
           {
@@ -894,11 +894,11 @@
           }
         ],
         "ui": {
-          "active": false,
+          "active": true,
           "left": 519.8,
           "top": 664.6,
-          "zIndex": 291,
-          "widthName": 77.8671875,
+          "zIndex": 42,
+          "widthName": 85.09716796875,
           "widthComment": 80
         },
         "visible": true,
@@ -1026,9 +1026,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 511.4,
-          "top": 328.2,
-          "zIndex": 275,
+          "left": 531.9709,
+          "top": 309.9142,
+          "zIndex": 36,
           "widthName": 60,
           "widthComment": 82.88818359375
         },
@@ -1133,10 +1133,10 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 22.65,
           "top": 313.95,
-          "zIndex": 301,
+          "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1221,7 +1221,7 @@
           "active": false,
           "left": 43.4,
           "top": 659.2,
-          "zIndex": 255,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1306,7 +1306,7 @@
           "active": false,
           "left": 325.15,
           "top": 512.95,
-          "zIndex": 263,
+          "zIndex": 4,
           "widthName": 77.13720703125,
           "widthComment": 93
         },
@@ -1365,8 +1365,8 @@
           "columnIds": [
             "f6fc587a-9348-45ed-a8f3-57ff05d32cdb"
           ],
-          "x": 511.4,
-          "y": 413.95,
+          "x": 531.9709,
+          "y": 395.6642,
           "direction": "left"
         },
         "constraintName": "fk_docmaster_to_ocr_log",
@@ -1409,8 +1409,8 @@
             "887411c3-1c1d-49c4-b0cf-8f5199e505c7",
             "5ae8a04a-6c62-44e5-b08a-76963aa01286"
           ],
-          "x": 918.45712890625,
-          "y": 371.075,
+          "x": 939.02802890625,
+          "y": 352.7892,
           "direction": "right"
         },
         "end": {
@@ -1437,8 +1437,8 @@
             "887411c3-1c1d-49c4-b0cf-8f5199e505c7",
             "5ae8a04a-6c62-44e5-b08a-76963aa01286"
           ],
-          "x": 918.45712890625,
-          "y": 456.825,
+          "x": 939.02802890625,
+          "y": 438.5392,
           "direction": "right"
         },
         "end": {
@@ -1465,8 +1465,8 @@
             "887411c3-1c1d-49c4-b0cf-8f5199e505c7",
             "5ae8a04a-6c62-44e5-b08a-76963aa01286"
           ],
-          "x": 714.928564453125,
-          "y": 499.7,
+          "x": 735.499464453125,
+          "y": 481.4142,
           "direction": "bottom"
         },
         "end": {
