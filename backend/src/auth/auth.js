@@ -17,10 +17,10 @@ passport.use(new JWTstrategy({
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken()
 }, async (req, token, done) => {
   try {
-    const user = await UsersDBApi.findBy( {email: token.user.email});
+    const user = await UsersDBApi.findBy( {userName: token.user.userName});
 
     if (user && user.disabled) {
-      return done (new Error(`User '${user.email}' is disabled`));
+      return done (new Error(`User '${user.userName}' is disabled`));
     }
 
     req.currentUser = user;

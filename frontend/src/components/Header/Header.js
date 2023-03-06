@@ -110,7 +110,7 @@ export default function Header(props) {
           )}
         </IconButton>
         <Typography variant='h6' weight='medium' className={classes.logotype}>
-          AIOCR-Admin
+          AIDocs-Admin
         </Typography>
         <div className={classes.grow} />
         <IconButton
@@ -121,7 +121,7 @@ export default function Header(props) {
           onClick={(e) => setProfileMenu(e.currentTarget)}
         >
           <Avatar
-            alt={currentUser?.firstName}
+            alt={currentUser?.userName}
             // eslint-disable-next-line no-mixed-operators
             src={
               currentUser?.avatar?.length >= 1 &&
@@ -129,7 +129,7 @@ export default function Header(props) {
             }
             classes={{ root: classes.headerIcon }}
           >
-            {currentUser?.firstName?.[0]}
+            {currentUser?.userName?.[0]}
           </Avatar>
         </IconButton>
         <Typography
@@ -138,7 +138,7 @@ export default function Header(props) {
         >
           <div className={classes.profileLabel}>Hi,&nbsp;</div>
           <Typography weight={'bold'} className={classes.profileLabel}>
-            {currentUser?.firstName}
+            {currentUser?.userName}
           </Typography>
         </Typography>
         <Menu
@@ -152,15 +152,15 @@ export default function Header(props) {
         >
           <div className={classes.profileMenuUser}>
             <Typography variant='h4' weight='medium'>
-              {currentUser?.firstName}
+              {currentUser?.userName}
             </Typography>
             <Typography
               className={classes.profileMenuLink}
               component='a'
               color='primary'
-              href='https://flatlogic.com'
+              href='https://infinov.com'
             >
-              Flatlogic.com
+              infinov.com
             </Typography>
           </div>
           <MenuItem

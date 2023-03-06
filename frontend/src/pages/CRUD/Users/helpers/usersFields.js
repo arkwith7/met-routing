@@ -2,11 +2,11 @@
 const usersFields = {
 	id: { type: 'id', label: 'ID' },
 
-    firstName: { type: 'string', label: 'First Name',
+    userName: { type: 'string', label: 'User Name',
 
     },
 
-    lastName: { type: 'string', label: 'Last Name',
+    korName: { type: 'string', label: 'Korean Name',
 
     },
 

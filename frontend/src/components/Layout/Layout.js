@@ -140,15 +140,15 @@ function Layout(props) {
                     <div>
                         <Link
                             color={'primary'}
-                            href={'https://flatlogic.com/'}
+                            href={'https://infinov.com/'}
                             target={'_blank'}
                             className={classes.link}
                         >
-                            Flatlogic
+                            Infinov
                         </Link>
                         <Link
                             color={'primary'}
-                            href={'https://flatlogic.com/about'}
+                            href={'https://infinov.com/aboutus'}
                             target={'_blank'}
                             className={classes.link}
                         >
@@ -156,40 +156,11 @@ function Layout(props) {
                         </Link>
                         <Link
                             color={'primary'}
-                            href={'https://flatlogic.com/blog'}
+                            href={'https://infinov.com/services'}
                             target={'_blank'}
                             className={classes.link}
                         >
-                            Blog
-                        </Link>
-                    </div>
-                    <div>
-                        <Link
-                            href={'https://www.facebook.com/flatlogic'}
-                            target={'_blank'}
-                        >
-                            <IconButton aria-label="facebook">
-                              <FacebookIcon style={{ color: '#6E6E6E99' }} />
-                            </IconButton>
-                        </Link>
-                        <Link
-                            href={'https://twitter.com/flatlogic'}
-                            target={'_blank'}
-                        >
-                            <IconButton aria-label="twitter">
-                              <TwitterIcon style={{ color: '#6E6E6E99' }} />
-                            </IconButton>
-                        </Link>
-                        <Link
-                            href={'https://github.com/flatlogic'}
-                            target={'_blank'}
-                        >
-                            <IconButton
-                                aria-label="github"
-                                style={{ padding: '12px 0 12px 12px' }}
-                            >
-                              <GithubIcon style={{ color: '#6E6E6E99' }} />
-                            </IconButton>
+                            Services
                         </Link>
                     </div>
                 </Footer>

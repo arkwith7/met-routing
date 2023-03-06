@@ -63,7 +63,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1 className='page-title'>
-        Welcome, {currentUser.firstName}! <br />
+        Welcome, {currentUser.userName}! <br />
         <small>
           <small>Your role is {currentUser.role}</small>
         </small>

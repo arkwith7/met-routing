@@ -43,7 +43,7 @@ module.exports = {
 
                     await queryInterface.addColumn(
                       'users',
-                      'firstName',
+                      'userName',
                       {
                           type: Sequelize.DataTypes.TEXT,
 
@@ -53,7 +53,7 @@ module.exports = {
 
                     await queryInterface.addColumn(
                       'users',
-                      'lastName',
+                      'korName',
                       {
                           type: Sequelize.DataTypes.TEXT,
 
@@ -265,13 +265,13 @@ module.exports = {
 
                     await queryInterface.removeColumn(
                         'users',
-                        'lastName',
+                        'korName',
                         { transaction }
                     );
 
                     await queryInterface.removeColumn(
                         'users',
-                        'firstName',
+                        'userName',
                         { transaction }
                     );
 

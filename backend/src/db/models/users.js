@@ -14,12 +14,12 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true,
       },
 
-firstName: {
+userName: {
         type: DataTypes.TEXT,
 
       },
 
-lastName: {
+korName: {
         type: DataTypes.TEXT,
 
       },
@@ -158,12 +158,12 @@ provider: {
 function trimStringFields(users) {
   users.email = users.email.trim();
 
-  users.firstName = users.firstName
-    ? users.firstName.trim()
+  users.userName = users.userName
+    ? users.userName.trim()
     : null;
 
-  users.lastName = users.lastName
-    ? users.lastName.trim()
+  users.korName = users.korName
+    ? users.korName.trim()
     : null;
 
   return users;

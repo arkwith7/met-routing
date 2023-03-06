@@ -74,7 +74,7 @@ const UsersForm = (props) => {
 
       <Grid item>
         <InputFormItem
-          name={'firstName'}
+          name={'userName'}
           schema={usersFields}
 
             autoFocus
@@ -84,7 +84,7 @@ const UsersForm = (props) => {
 
       <Grid item>
         <InputFormItem
-          name={'lastName'}
+          name={'korName'}
           schema={usersFields}
 
         />

@@ -1,5 +1,5 @@
 
-#AIOCR-Admin - template backend,
+#AIDocs-Admin - template backend,
 
 #### Run App on local machine:
 

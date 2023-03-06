@@ -60,7 +60,7 @@ const UsersTable = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
 
   const [filters, setFilters] = React.useState([
-    {label: 'First Name', title: 'firstName'},{label: 'Last Name', title: 'lastName'},{label: 'Phone Number', title: 'phoneNumber'},{label: 'E-Mail', title: 'email'},
+    {label: 'User Name', title: 'userName'},{label: 'Korean Name', title: 'korName'},{label: 'Phone Number', title: 'phoneNumber'},{label: 'E-Mail', title: 'email'},
 
   ]);
 
@@ -198,18 +198,18 @@ const UsersTable = () => {
 
   const columns = [
 
-      { field: "firstName",
+      { field: "userName",
 
         flex: 0.6,
 
-      headerName: "First Name"
+      headerName: "User Name"
       },
 
-      { field: "lastName",
+      { field: "korName",
 
         flex: 0.6,
 
-      headerName: "Last Name"
+      headerName: "Korean Name"
       },
 
       { field: "phoneNumber",

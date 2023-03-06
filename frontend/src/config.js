@@ -11,7 +11,7 @@ export default {
   remote: "https://sing-generator-node.herokuapp.com",
   isBackend: process.env.REACT_APP_BACKEND,
   auth: {
-    email: "admin@flatlogic.com",
+    email: "admin@infinov.com",
     password: "password"
   },
   app: {

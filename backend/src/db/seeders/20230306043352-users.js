@@ -3,9 +3,10 @@ const bcrypt = require("bcrypt");
 const config = require("../../config");
 
 const ids = [
-    '193bf4b5-9f07-4bd5-9a43-e7e41f3e96af',
-    'af5a87be-8f9c-4630-902a-37a60b7005ba',
-    '5bc531ab-611f-41f3-9373-b7cc5d09c93d',
+  '9sfisfjr-623f-41f3-9481-dsvsqwrwfwe3',
+  'af5a87be-8f9c-4630-902a-37a60b7005ba',
+  '5bc531ab-611f-41f3-9373-b7cc5d09c93d',
+  '193bf4b5-9f07-4bd5-9a43-e7e41f3e96af',
 ]
 
 module.exports = {
@@ -24,7 +25,7 @@ module.exports = {
     return queryInterface.bulkInsert('users', [
       {
         id: ids[0],
-        firstName: 'Admin',
+        userName: 'admin',
         email: config.admin_email,
         emailVerified: true,
         role: 'admin',
@@ -35,7 +36,7 @@ module.exports = {
       },
       {
         id: ids[1],
-        firstName: 'John',
+        userName: 'john',
         email: 'john@doe.com',
         emailVerified: true,
         role: 'user',
@@ -46,7 +47,7 @@ module.exports = {
       },
       {
         id: ids[2],
-        firstName: 'Client',
+        userName: 'client',
         email: 'client@hello.com',
         emailVerified: true,
         role: 'user',

@@ -1,6 +1,6 @@
 {
   "name": "aiocradmin",
-  "description": "AIOCR-Admin - template backend",
+  "description": "AIDocs-Admin - template backend",
   "scripts": {
     "start": "npm run db:migrate && npm run db:seed && nodemon ./src/index.js",
     "db:migrate": "sequelize-cli db:migrate",

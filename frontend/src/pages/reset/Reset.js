@@ -60,7 +60,7 @@ function Reset(props) {
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
         <img src={logo} alt="logo" className={classes.logotypeImage} />
-        <Typography className={classes.logotypeText}>AIOCR-Admin</Typography>
+        <Typography className={classes.logotypeText}>AIDocs-Admin</Typography>
       </div>
       <div className={classes.customFormContainer}>
         <div className={classes.form}>
@@ -121,7 +121,7 @@ function Reset(props) {
           </div>
         </div>
         <Typography color="primary" className={classes.copyright}>
-           2014-{new Date().getFullYear()} <a style={{ textDecoration: 'none', color: 'inherit' }} href="https://flatlogic.com" rel="noopener noreferrer" target="_blank">Flatlogic</a>, LLC. All rights reserved.
+           {new Date().getFullYear()} <a style={{ textDecoration: 'none', color: 'inherit' }} href="https://infinov.com" rel="noopener noreferrer" target="_blank">Infinov</a>, LLC. All rights reserved.
         </Typography>
       </div>
     </Grid>

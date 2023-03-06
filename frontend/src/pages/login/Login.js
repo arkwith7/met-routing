@@ -65,7 +65,7 @@ function Login(props) {
   let [error, setError] = useState(null);
   let [activeTabId, setActiveTabId] = useState(+tab ?? 0);
   let [nameValue, setNameValue] = useState('');
-  let [loginValue, setLoginValue] = useState('admin@flatlogic.com');
+  let [loginValue, setLoginValue] = useState('admin');
   let [newUserEmailValue, setNewUserEmailValue] = useState('');
   let [passwordValue, setPasswordValue] = useState('password');
   let [newUserPasswordValue, setNewUserPasswordValue] = useState('');
@@ -98,7 +98,7 @@ function Login(props) {
       <div className={classes.logotypeContainer}>
         <img src={logo} alt='logo' className={classes.logotypeImage} />
         <Typography className={classes.logotypeText}>
-         <Typography className={classes.logotypeText}>AIOCR-Admin</Typography>
+         <Typography className={classes.logotypeText}>AIDocs-Admin</Typography>
         </Typography>
       </div>
       <div
@@ -178,7 +178,7 @@ function Login(props) {
                     </Typography>
                   </Grow>
                   <Input
-                    id='email'
+                    id='userName'
                     InputProps={{
                       classes: {
                         underline: classes.InputUnderline,
@@ -189,7 +189,7 @@ function Login(props) {
                     onChange={(e) => setLoginValue(e.target.value)}
                     margin='normal'
                     placeholder='Email Adress'
-                    type='email'
+                    type='text'
                     fullWidth
                     onKeyDown={(e) => loginOnEnterKey(e)}
                   />
@@ -260,7 +260,7 @@ function Login(props) {
                     </Typography>
                   </Grow>
                   <Input
-                    id='name'
+                    id='userName'
                     InputProps={{
                       classes: {
                         underline: classes.InputUnderline,
@@ -270,8 +270,8 @@ function Login(props) {
                     value={nameValue}
                     onChange={(e) => setNameValue(e.target.value)}
                     margin='normal'
-                    placeholder='Full Name'
-                    type='email'
+                    placeholder='User Name'
+                    type='text'
                     fullWidth
                   />
                   <Input
@@ -336,14 +336,14 @@ function Login(props) {
           )}
         </div>
         <Typography color='primary' className={classes.copyright}>
-          2014-{new Date().getFullYear()}{' '}
+          {new Date().getFullYear()}{' '}
           <a
             style={{ textDecoration: 'none', color: 'inherit' }}
-            href='https://flatlogic.com'
+            href='https://infinov.com'
             rel='noopener noreferrer'
             target='_blank'
           >
-            Flatlogic
+            Infinov
           </a>
           , LLC. All rights reserved.
         </Typography>

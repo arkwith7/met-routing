@@ -21,7 +21,7 @@ const router = express.Router();
  *        properties:
  *          email:
  *            type: string
- *            default: admin@flatlogic.com
+ *            default: admin@infinov.com
  *            description: User email
  *          password:
  *            type: string

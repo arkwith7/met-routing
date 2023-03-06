@@ -10,8 +10,8 @@ const config = require('../config');
 const helpers = require('../helpers');
 
 class Auth {
-  static async signup(email, password, options = {}, host) {
-    const user = await UsersDBApi.findBy({email});
+  static async signup(userName, email, password, options = {}, host) {
+    const user = await UsersDBApi.findBy({userName});
 
     const hashedPassword = await bcrypt.hash(
       password,
@@ -47,7 +47,8 @@ class Auth {
       const data = {
         user: {
           id: user.id,
-          email: user.email
+          userName: user.userName,
+          email : user.email
         }
       };
 
@@ -56,7 +57,7 @@ class Auth {
 
     const newUser = await UsersDBApi.createFromAuth(
       {
-        firstName: email.split('@')[0],
+        userName: userName,
         password: hashedPassword,
         email: email,
       },
@@ -73,6 +74,7 @@ class Auth {
     const data = {
       user: {
         id: newUser.id,
+        userName: newUser.userName,
         email: newUser.email
       }
     };
@@ -80,8 +82,8 @@ class Auth {
     return helpers.jwtSign(data);
   }
 
-  static async signin(email, password, options = {}) {
-    const user = await UsersDBApi.findBy({email});
+  static async signin(userName, password, options = {}) {
+    const user = await UsersDBApi.findBy({userName});
 
     if (!user) {
       throw new ValidationError(
@@ -125,7 +127,7 @@ class Auth {
     const data = {
       user: {
         id: user.id,
-        email: user.email
+        userName: user.userName
       }
     };
 

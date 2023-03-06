@@ -33,8 +33,8 @@ const options = {
     openapi: "3.0.0",
       info: {
         version: "1.0.0",
-        title: "AIOCR-Admin",
-        description: "AIOCR-Admin Online REST API for Testing and Prototyping application. You can perform all major operations with your entities - create, delete and etc.",
+        title: "AIDocs-Admin",
+        description: "AIDocs-Admin Online REST API for Testing and Prototyping application. You can perform all major operations with your entities - create, delete and etc.",
       },
     servers: [
       {

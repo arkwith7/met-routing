@@ -91,27 +91,27 @@ const Header = (props) => {
           className={classes.fullWidthXs}
         >
           <Box display={'flex'} className={classes.icons}>
-            <Link href={'https://twitter.com/flatlogic'}>
+            <Link href={'https://twitter.com/infinov'}>
               <IconButton>
                 <TwitterIcon style={{ color: '#fff' }} />
               </IconButton>
             </Link>
-            <Link href={'https://www.facebook.com/flatlogic'}>
+            <Link href={'https://www.facebook.com/infinov'}>
               <IconButton>
                 <FacebookIcon style={{ color: '#fff' }} />
               </IconButton>
             </Link>
-            <Link href={'https://instagram.com/flatlogiccom/'}>
+            <Link href={'https://instagram.com/infinovcom/'}>
               <IconButton>
                 <InstagramIcon style={{ color: '#fff' }} />
               </IconButton>
             </Link>
-            <Link href={'https://www.linkedin.com/company/flatlogic/'}>
+            <Link href={'https://www.linkedin.com/company/infinov/'}>
               <IconButton>
                 <LinkedInIcon style={{ color: '#fff' }} />
               </IconButton>
             </Link>
-            <Link href={'https://github.com/flatlogic'}>
+            <Link href={'https://github.com/infinov'}>
               <IconButton>
                 <GitHubIcon style={{ color: '#fff' }} />
               </IconButton>
@@ -126,7 +126,7 @@ const Header = (props) => {
               Live Preview
             </Button>
             <Button
-              href={'https://flatlogic.com/templates/react-material-admin-full'}
+              href={'https://infinov.com/templates/react-material-admin-full'}
               variant='outlined'
               color='secondary'
             >

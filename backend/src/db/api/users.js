@@ -20,12 +20,12 @@ module.exports = class UsersDBApi {
   {
   id: data.data.id || undefined,
 
-    firstName: data.data.firstName
+    userName: data.data.userName
     ||
     null
 ,
 
-    lastName: data.data.lastName
+    korName: data.data.korName
     ||
     null
 ,
@@ -128,12 +128,12 @@ module.exports = class UsersDBApi {
     await users.update(
       {
 
-        firstName: data.firstName
+        userName: data.userName
         ||
         null
 ,
 
-        lastName: data.lastName
+        korName: data.korName
         ||
         null
 ,
@@ -282,24 +282,24 @@ module.exports = class UsersDBApi {
         };
       }
 
-      if (filter.firstName) {
+      if (filter.userName) {
         where = {
           ...where,
           [Op.and]: Utils.ilike(
             'users',
-            'firstName',
-            filter.firstName,
+            'userName',
+            filter.userName,
           ),
         };
       }
 
-      if (filter.lastName) {
+      if (filter.korName) {
         where = {
           ...where,
           [Op.and]: Utils.ilike(
             'users',
-            'lastName',
-            filter.lastName,
+            'korName',
+            filter.korName,
           ),
         };
       }
@@ -520,7 +520,7 @@ module.exports = class UsersDBApi {
           { ['id']: Utils.uuid(query) },
           Utils.ilike(
             'users',
-            'firstName',
+            'userName',
             query,
           ),
         ],
@@ -528,15 +528,15 @@ module.exports = class UsersDBApi {
     }
 
     const records = await db.users.findAll({
-      attributes: [ 'id', 'firstName' ],
+      attributes: [ 'id', 'userName' ],
       where,
       limit: limit ? Number(limit) : undefined,
-      orderBy: [['firstName', 'ASC']],
+      orderBy: [['userName', 'ASC']],
     });
 
     return records.map((record) => ({
       id: record.id,
-      label: record.firstName,
+      label: record.userName,
     }));
   }
 
@@ -545,7 +545,7 @@ module.exports = class UsersDBApi {
     const users = await db.users.create(
       {
         email: data.email,
-        firstName: data.firstName,
+        userName: data.userName,
         authenticationUid: data.authenticationUid,
         password: data.password,
       },

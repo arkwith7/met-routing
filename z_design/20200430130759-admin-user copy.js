@@ -15,7 +15,7 @@ module.exports = {
     return queryInterface.bulkInsert('users', [
       {
         id: ids[0],
-        firstName: 'Admin',
+        userName: 'Admin',
         email: config.admin_email,
         emailVerified: true,
         role: 'admin',
@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         id: ids[1],
-        firstName: 'John',
+        userName: 'John',
         email: 'john@doe.com',
         emailVerified: true,
         role: 'user',
@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         id: ids[2],
-        firstName: 'Client',
+        userName: 'Client',
         email: 'client@hello.com',
         emailVerified: true,
         role: 'user',

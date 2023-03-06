@@ -197,10 +197,10 @@ const EditUser = () => {
                     Account
                   </Typography>
                   <TextField
-                    label='First Name'
-                    value={data?.firstName || ''}
+                    label='User Name'
+                    value={data?.userName || ''}
                     onChange={handleChange}
-                    name='firstName'
+                    name='userName'
                     variant='outlined'
                     style={{ marginBottom: 35 }}
                   />
@@ -279,17 +279,17 @@ const EditUser = () => {
                     label='Name'
                     variant='outlined'
                     defaultValue='Name'
-                    value={data && data.firstName}
-                    name='firstName'
+                    value={data && data.userName}
+                    name='userName'
                     onChange={handleChange}
                     style={{ marginBottom: 35 }}
                   />
                   <TextField
-                    label='Last Name'
+                    label='Korean Name'
                     variant='outlined'
-                    defaultValue={'Last Name'}
-                    value={data && data.lastName}
-                    name='lastName'
+                    defaultValue={'Korean Name'}
+                    value={data && data.korName}
+                    name='korName'
                     onChange={handleChange}
                     style={{ marginBottom: 35 }}
                   />

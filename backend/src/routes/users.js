@@ -16,12 +16,12 @@ const { parse } = require('json2csv');
  *        type: object
  *        properties:
 
- *          firstName:
+ *          userName:
  *            type: string
- *            default: firstName
- *          lastName:
+ *            default: userName
+ *          korName:
  *            type: string
- *            default: lastName
+ *            default: korName
  *          phoneNumber:
  *            type: string
  *            default: phoneNumber
@@ -208,7 +208,7 @@ router.get('/', wrapAsync(async (req, res) => {
     req.query,
   );
   if (filetype && filetype === 'csv') {
-    const fields = ['id','firstName','lastName','phoneNumber','email',
+    const fields = ['id','userName','korName','phoneNumber','email',
 
         ];
     const opts = { fields };

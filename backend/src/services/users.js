@@ -9,11 +9,12 @@ const AuthService = require('./auth');
 module.exports = class UsersService {
   static async create(data, currentUser, sendInvitationEmails = true, host) {
     let transaction = await db.sequelize.transaction();
+    let userName = data.userName;
     let email = data.email;
     let emailsToInvite = [];
     try {
-      if (email) {
-      let user = await UsersDBApi.findBy({email}, {transaction});
+      if (userName) {
+      let user = await UsersDBApi.findBy({userName}, {transaction});
     if (user) {
       throw new ValidationError(
         'iam.errors.userAlreadyExists',
