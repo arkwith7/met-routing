@@ -13,7 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-
 code: {
         type: DataTypes.TEXT,
 
@@ -39,11 +38,6 @@ left_or_right: {
 
       },
 
-      importHash: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-        unique: true,
-      },
     },
     {
       timestamps: true,

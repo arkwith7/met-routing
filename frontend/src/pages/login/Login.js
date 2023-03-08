@@ -312,6 +312,7 @@ function Login(props) {
                         onClick={() =>
                           registerUser(
                             userDispatch,
+                            nameValue,
                             newUserEmailValue,
                             newUserPasswordValue,
                             props.history,

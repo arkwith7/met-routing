@@ -34,11 +34,11 @@ module.exports = {
                         createdAt: { type: Sequelize.DataTypes.DATE },
                         updatedAt: { type: Sequelize.DataTypes.DATE },
                         deletedAt: { type: Sequelize.DataTypes.DATE },
-                        importHash: {
-                            type: Sequelize.DataTypes.STRING(255),
-                            allowNull: true,
-                          unique: true, 
-                        },
+                        // importHash: {
+                        //     type: Sequelize.DataTypes.STRING(255),
+                        //     allowNull: true,
+                        //   unique: true, 
+                        // },
                     }, { transaction });
 
                     await queryInterface.addColumn(

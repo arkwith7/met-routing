@@ -14,41 +14,41 @@ module.exports = class UsersService {
     let emailsToInvite = [];
     try {
       if (userName) {
-      let user = await UsersDBApi.findBy({userName}, {transaction});
-    if (user) {
-      throw new ValidationError(
-        'iam.errors.userAlreadyExists',
-      );
-    } else {
-      await UsersDBApi.create(
-      {data},
-    {
-      currentUser,
-      transaction,
-    },
-  );
-      emailsToInvite.push(email);
+        let user = await UsersDBApi.findBy({ userName }, { transaction });
+        if (user) {
+          throw new ValidationError(
+            'iam.errors.userAlreadyExists',
+          );
+        } else {
+          await UsersDBApi.create(
+            { data },
+            {
+              currentUser,
+              transaction,
+            },
+          );
+          emailsToInvite.push(email);
+        }
+      }
+      await transaction.commit();
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
     }
-  }
-    await transaction.commit();
-  } catch (error) {
-    await transaction.rollback();
-    throw error;
-  }
-  if (emailsToInvite && emailsToInvite.length) {
-    if (!sendInvitationEmails) {
-    return;
-  }
-    AuthService.sendPasswordResetEmail(email, 'invitation', host);
-    }
+    // if (emailsToInvite && emailsToInvite.length) {
+    //   if (!sendInvitationEmails) {
+    //     return;
+    //   }
+    //   AuthService.sendPasswordResetEmail(email, 'invitation', host);
+    // }
   }
 
   static async update(data, id, currentUser) {
     const transaction = await db.sequelize.transaction();
     try {
       let users = await UsersDBApi.findBy(
-        {id},
-        {transaction},
+        { id },
+        { transaction },
       );
 
       if (!users) {

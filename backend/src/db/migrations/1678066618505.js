@@ -14,7 +14,8 @@ module.exports = {
                     await queryInterface.createTable('doc_master', {
                         id: {
                             type: Sequelize.DataTypes.UUID,
-                            defaultValue: Sequelize.DataTypes.UUIDV4,
+                            defaultValue: Sequelize.literal('(NEWID())'),
+                            // defaultValue: Sequelize.DataTypes.UUIDV4,
                             primaryKey: true,
                         },
                         createdById: {
@@ -34,17 +35,13 @@ module.exports = {
                         createdAt: { type: Sequelize.DataTypes.DATE },
                         updatedAt: { type: Sequelize.DataTypes.DATE },
                         deletedAt: { type: Sequelize.DataTypes.DATE },
-                        importHash: {
-                            type: Sequelize.DataTypes.STRING(255),
-                            allowNull: true,
-                          unique: true, 
-                        },
                     }, { transaction });
 
                     await queryInterface.createTable('doc_extraction_items', {
                         id: {
                             type: Sequelize.DataTypes.UUID,
-                            defaultValue: Sequelize.DataTypes.UUIDV4,
+                            defaultValue: Sequelize.literal('(NEWID())'),
+                            // defaultValue: Sequelize.DataTypes.UUIDV4,
                             primaryKey: true,
                         },
                         createdById: {
@@ -64,17 +61,13 @@ module.exports = {
                         createdAt: { type: Sequelize.DataTypes.DATE },
                         updatedAt: { type: Sequelize.DataTypes.DATE },
                         deletedAt: { type: Sequelize.DataTypes.DATE },
-                        importHash: {
-                            type: Sequelize.DataTypes.STRING(255),
-                            allowNull: true,
-                          unique: true, 
-                        },
                     }, { transaction });
 
                     await queryInterface.createTable('disease_cd', {
                         id: {
                             type: Sequelize.DataTypes.UUID,
-                            defaultValue: Sequelize.DataTypes.UUIDV4,
+                            defaultValue: Sequelize.literal('(NEWID())'),
+                            // defaultValue: Sequelize.DataTypes.UUIDV4,
                             primaryKey: true,
                         },
                         createdById: {
@@ -94,17 +87,13 @@ module.exports = {
                         createdAt: { type: Sequelize.DataTypes.DATE },
                         updatedAt: { type: Sequelize.DataTypes.DATE },
                         deletedAt: { type: Sequelize.DataTypes.DATE },
-                        importHash: {
-                            type: Sequelize.DataTypes.STRING(255),
-                            allowNull: true,
-                          unique: true, 
-                        },
                     }, { transaction });
 
                     await queryInterface.createTable('operation_cd', {
                         id: {
                             type: Sequelize.DataTypes.UUID,
-                            defaultValue: Sequelize.DataTypes.UUIDV4,
+                            defaultValue: Sequelize.literal('(NEWID())'),
+                            // defaultValue: Sequelize.DataTypes.UUIDV4,
                             primaryKey: true,
                         },
                         createdById: {
@@ -124,17 +113,13 @@ module.exports = {
                         createdAt: { type: Sequelize.DataTypes.DATE },
                         updatedAt: { type: Sequelize.DataTypes.DATE },
                         deletedAt: { type: Sequelize.DataTypes.DATE },
-                        importHash: {
-                            type: Sequelize.DataTypes.STRING(255),
-                            allowNull: true,
-                          unique: true, 
-                        },
                     }, { transaction });
 
                     await queryInterface.createTable('insurance_cd', {
                         id: {
                             type: Sequelize.DataTypes.UUID,
-                            defaultValue: Sequelize.DataTypes.UUIDV4,
+                            defaultValue: Sequelize.literal('(NEWID())'),
+                            // defaultValue: Sequelize.DataTypes.UUIDV4,
                             primaryKey: true,
                         },
                         createdById: {
@@ -154,17 +139,13 @@ module.exports = {
                         createdAt: { type: Sequelize.DataTypes.DATE },
                         updatedAt: { type: Sequelize.DataTypes.DATE },
                         deletedAt: { type: Sequelize.DataTypes.DATE },
-                        importHash: {
-                            type: Sequelize.DataTypes.STRING(255),
-                            allowNull: true,
-                          unique: true, 
-                        },
                     }, { transaction });
 
                     await queryInterface.createTable('ocr_log', {
                         id: {
                             type: Sequelize.DataTypes.UUID,
-                            defaultValue: Sequelize.DataTypes.UUIDV4,
+                            defaultValue: Sequelize.literal('(NEWID())'),
+                            // defaultValue: Sequelize.DataTypes.UUIDV4,
                             primaryKey: true,
                         },
                         createdById: {
@@ -184,11 +165,6 @@ module.exports = {
                         createdAt: { type: Sequelize.DataTypes.DATE },
                         updatedAt: { type: Sequelize.DataTypes.DATE },
                         deletedAt: { type: Sequelize.DataTypes.DATE },
-                        importHash: {
-                            type: Sequelize.DataTypes.STRING(255),
-                            allowNull: true,
-                          unique: true, 
-                        },
                     }, { transaction });
 
                     await queryInterface.addColumn(

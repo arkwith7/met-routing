@@ -161,7 +161,7 @@ export function registerUser(creds) {
       type: REGISTER_REQUEST,
     });
 
-    if (creds.email.length > 0 && creds.password.length > 0) {
+    if (creds.userName.length > 0 && creds.password.length > 0) {
       axios.post("/auth/signup", creds).then(res => {
         dispatch({
           type: REGISTER_SUCCESS

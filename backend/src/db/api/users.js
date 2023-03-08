@@ -88,7 +88,8 @@ module.exports = class UsersDBApi {
     null
 ,
 
-  importHash: data.data.importHash || null,
+  // importHash: data.data.importHash || null,
+  // importHash:'qwertyuiop',
   createdById: currentUser.id,
   updatedById: currentUser.id,
   },
@@ -551,6 +552,7 @@ module.exports = class UsersDBApi {
       },
       { transaction },
     );
+    console.log("신규 사용자 등록 완료.... 사용자ID :%s",users.userName)
 
     await users.update(
       {

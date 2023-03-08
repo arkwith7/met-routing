@@ -139,6 +139,7 @@ router.post('/send-password-reset-email', wrapAsync(async (req, res) => {
 
 router.post('/signup', wrapAsync(async (req, res) => {
   const payload = await AuthService.signup(
+      req.body.userName,
       req.body.email,
       req.body.password,
       req,

@@ -93,11 +93,11 @@ provider: {
 
       },
 
-      importHash: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-        unique: true,
-      },
+      // importHash: {
+      //   type: DataTypes.STRING(255),
+      //   allowNull: true,
+      //   unique: true,
+      // },
     },
     {
       timestamps: true,
@@ -168,4 +168,3 @@ function trimStringFields(users) {
 
   return users;
 }
-

@@ -3,69 +3,55 @@ const bcrypt = require("bcrypt");
 const config = require("../../config");
 
 const ids = [
-  '9sfisfjr-623f-41f3-9481-dsvsqwrwfwe3',
-  'af5a87be-8f9c-4630-902a-37a60b7005ba',
-  '5bc531ab-611f-41f3-9373-b7cc5d09c93d',
-  '193bf4b5-9f07-4bd5-9a43-e7e41f3e96af',
+    '193bf4b5-9f07-4bd5-9a43-e7e41f3e96af',
+    'af5a87be-8f9c-4630-902a-37a60b7005ba',
+    '5bc531ab-611f-41f3-9373-b7cc5d09c93d',
 ]
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+  up: (queryInterface, Sequelize) => {
     let hash = bcrypt.hashSync(config.admin_pass, config.bcrypt.saltRounds);
 
     return queryInterface.bulkInsert('users', [
       {
         id: ids[0],
-        userName: 'admin',
+        userName: 'Admin',
         email: config.admin_email,
         emailVerified: true,
         role: 'admin',
         provider: config.providers.LOCAL,
         password: hash,
+        // importHash :'safasfasfsaf1',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         id: ids[1],
-        userName: 'john',
+        userName: 'John',
         email: 'john@doe.com',
         emailVerified: true,
         role: 'user',
         provider: config.providers.LOCAL,
         password: hash,
+        // importHash :'safasfasfsaf2',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         id: ids[2],
-        userName: 'client',
+        userName: 'Client',
         email: 'client@hello.com',
         emailVerified: true,
         role: 'user',
         provider: config.providers.LOCAL,
         password: hash,
+        // importHash :'safasfasfsaf3',
         createdAt: new Date(),
         updatedAt: new Date()
       },
     ]);
   },
-
-  down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+  down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('users', {
       id: {
         [Sequelize.Op.in]: ids,

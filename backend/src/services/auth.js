@@ -11,7 +11,10 @@ const helpers = require('../helpers');
 
 class Auth {
   static async signup(userName, email, password, options = {}, host) {
+    console.log("사용자 등록 시작......");
+    console.log("userName:%s, email:%s, password:%s",userName, email, password);
     const user = await UsersDBApi.findBy({userName});
+    console.log("사용자 존재 여부 확인 성공......");
 
     const hashedPassword = await bcrypt.hash(
       password,
@@ -19,6 +22,7 @@ class Auth {
     );
 
     if (user) {
+      console.log("사용자가 존재 할때 처리......");
       if (user.authenticationUid) {
         throw new ValidationError(
           'auth.emailAlreadyInUse',
@@ -55,6 +59,7 @@ class Auth {
       return helpers.jwtSign(data);
     }
 
+    console.log("신규 사용자 등록 처리 시작......");
     const newUser = await UsersDBApi.createFromAuth(
       {
         userName: userName,
@@ -63,13 +68,15 @@ class Auth {
       },
       options,
     );
+    console.log("신규 사용자 등록 처리 성공......");
+    console.log("New userName:%s, email:%s, password:%s",newUser.userName, newUser.email, newUser.password)
 
-    if (EmailSender.isConfigured) {
-      await this.sendEmailAddressVerificationEmail(
-        newUser.email,
-        host,
-      );
-    }
+    // if (EmailSender.isConfigured) {
+    //   await this.sendEmailAddressVerificationEmail(
+    //     newUser.email,
+    //     host,
+    //   );
+    // }
 
     const data = {
       user: {
@@ -78,6 +85,7 @@ class Auth {
         email: newUser.email
       }
     };
+    console.log("새로운 사용자 등록 data:%s",data.user.userName)
 
     return helpers.jwtSign(data);
   }

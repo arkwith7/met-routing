@@ -13,7 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-
 ocr_time: {
         type: DataTypes.DATE,
 
@@ -42,11 +41,7 @@ is_classification: {
 
       },
 
-      importHash: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-        unique: true,
-      },
+
     },
     {
       timestamps: true,

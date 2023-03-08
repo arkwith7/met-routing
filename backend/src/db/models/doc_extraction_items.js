@@ -13,7 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-
 item_no: {
         type: DataTypes.INTEGER,
 
@@ -49,11 +48,6 @@ after_desc: {
 
       },
 
-      importHash: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-        unique: true,
-      },
     },
     {
       timestamps: true,

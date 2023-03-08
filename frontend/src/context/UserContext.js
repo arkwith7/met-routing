@@ -246,7 +246,8 @@ export function doInit() {
 
 export function registerUser(
   dispatch,
-  login,
+  userName,
+  email,
   password,
   history,
   setIsLoading,
@@ -260,8 +261,8 @@ export function registerUser(
       dispatch({
         type: 'REGISTER_REQUEST',
       });
-      if (login.length > 0 && password.length > 0) {
-        axios.post("/auth/signup", {email: login, password}).then(res => {
+      if (userName.length > 0 && password.length > 0) {
+        axios.post("/auth/signup", {userName: userName, email: email, password}).then(res => {
           dispatch({
             type: 'REGISTER_SUCCESS'
           });

@@ -13,7 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-
 code: {
         type: DataTypes.TEXT,
 
@@ -37,11 +36,6 @@ is_operation: {
 
       },
 
-      importHash: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-        unique: true,
-      },
     },
     {
       timestamps: true,
