@@ -42,7 +42,7 @@ const Actions = ({ classes, id, openModal, entity }) => {
           }}
         >
           <EditIcon />
-          Edit
+          수정
         </MenuItem>
         <MenuItem
           classes={classes}
@@ -52,7 +52,7 @@ const Actions = ({ classes, id, openModal, entity }) => {
           }}
         >
           <DeleteIcon />
-          Delete
+          삭제
         </MenuItem>
       </Menu>
     </div>

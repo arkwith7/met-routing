@@ -6,7 +6,10 @@ import { withRouter } from "react-router-dom";
 import classNames from "classnames";
 
 import {
+  Dashboard as DashboardIcon,
   Home as HomeIcon,
+  PeopleAlt as PeopleAltIcon,
+  Plagiarism as PlagiarismIcon,
   Apps as CoreIcon,
   Description as DocumentationIcon,
   AccountCircle as ProfileIcon,
@@ -94,12 +97,12 @@ function Sidebar({ location, structure }) {
             link="/admin/dashboard"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<HomeIcon />}
+            icon={<DashboardIcon />}
             toggleDrawer={toggleDrawer(true)}
           />
 
           <SidebarLink
-            label="Edit User"
+            label="My Info."
             link="/admin/user/edit"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
@@ -108,34 +111,34 @@ function Sidebar({ location, structure }) {
           />
 
           <SidebarLink
-            label="Users"
+            label="사용자정보"
             link="/admin/users"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<CoreIcon />}
+            icon={<PeopleAltIcon />}
             toggleDrawer={toggleDrawer(true)}
           />
 
           <SidebarLink
-            label="Doc master"
+            label="OCR 서류정보"
             link="/admin/doc_master"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<CoreIcon />}
+            icon={<PlagiarismIcon />}
             toggleDrawer={toggleDrawer(true)}
           />
 
-          <SidebarLink
+          {/* <SidebarLink
             label="Doc extraction items"
             link="/admin/doc_extraction_items"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
             icon={<CoreIcon />}
             toggleDrawer={toggleDrawer(true)}
-          />
+          /> */}
 
           <SidebarLink
-            label="Disease cd"
+            label="질병코드정보"
             link="/admin/disease_cd"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
@@ -144,7 +147,7 @@ function Sidebar({ location, structure }) {
           />
 
           <SidebarLink
-            label="Operation cd"
+            label="수술코드정보"
             link="/admin/operation_cd"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
@@ -153,7 +156,7 @@ function Sidebar({ location, structure }) {
           />
 
           <SidebarLink
-            label="Insurance cd"
+            label="수가코드정보"
             link="/admin/insurance_cd"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}
@@ -162,7 +165,7 @@ function Sidebar({ location, structure }) {
           />
 
           <SidebarLink
-            label="Ocr log"
+            label="Ocr Log Info."
             link="/admin/ocr_log"
             location={location}
             isSidebarOpened={isSidebarOpenedWrapper}

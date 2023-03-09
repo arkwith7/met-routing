@@ -12,7 +12,8 @@ export default makeStyles((theme) => ({
     left: 0,
   },
   logotypeContainer: {
-    backgroundColor: theme.palette.primary.main,
+    // backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.success.main,
     width: '60%',
     height: '100%',
     display: 'flex',

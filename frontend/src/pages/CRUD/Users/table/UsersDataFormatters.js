@@ -25,6 +25,8 @@ function imageFormatter(cell, key) {
 };
 
 function booleanFormatter(cell) {
+  // console.log("부울린 필드 값:",cell)
+  // console.log("사용자 disabled  부울린 필드 값:",cell.disabled)
     return cell
       ? 'Yes'
       : 'No';

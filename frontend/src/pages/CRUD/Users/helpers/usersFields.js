@@ -2,15 +2,15 @@
 const usersFields = {
 	id: { type: 'id', label: 'ID' },
 
-    userName: { type: 'string', label: 'User Name',
+    userName: { type: 'string', label: '사용자 ID',
 
     },
 
-    korName: { type: 'string', label: 'Korean Name',
+    korName: { type: 'string', label: '성명',
 
     },
 
-    phoneNumber: { type: 'string', label: 'Phone Number',
+    phoneNumber: { type: 'string', label: '전화번호',
 
     },
 
@@ -30,7 +30,7 @@ const usersFields = {
 
     },
 
-    disabled: { type: 'boolean', label: 'Disabled',
+    disabled: { type: 'boolean', label: '비활성',
 
     },
 
@@ -38,7 +38,7 @@ const usersFields = {
 
     },
 
-    password: { type: 'string', label: 'Password',
+    password: { type: 'string', label: '비밀번호',
 
     },
 
@@ -66,7 +66,7 @@ const usersFields = {
 
     },
 
-password: { type: 'string', label: 'Password' },
+password: { type: 'string', label: '비밀번호' },
 
 }
 

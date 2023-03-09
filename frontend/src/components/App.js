@@ -16,7 +16,7 @@ import Documentation from "./Documentation/Documentation";
 // pages
 import Starter from '../pages/starter';
 import Error from "../pages/error";
-import Login from "../pages/login";
+import Login from "../pages/login/Login";
 import Verify from "../pages/verify";
 import Reset from "../pages/reset";
 
@@ -71,7 +71,8 @@ export default function App() {
             isAuth ? (
             React.createElement(component, props)
           ) : (
-            <Redirect to={"/starter"} />
+            // <Redirect to={"/starter"} />
+            <Redirect to={"/login"} />
           )
         }
       />

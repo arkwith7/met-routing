@@ -57,8 +57,8 @@ const UsersForm = (props) => {
   }
 
   return isEditing
-  ? 'Edit Users'
-  : 'Add Users';
+  ? '사용자 정보 수정'
+  : '신규 사용자 등록';
   };
 
   const renderForm = () => (
@@ -148,7 +148,7 @@ const UsersForm = (props) => {
         variant="contained"
         onClick={form.handleSubmit}
       >
-        Save
+        저장
       </Button>
     </Grid>
     <Grid item>
@@ -157,7 +157,7 @@ const UsersForm = (props) => {
         variant="outlined"
         onClick={form.handleReset}
       >
-        Reset
+        초기화
       </Button>
     </Grid>
     <Grid item>
@@ -166,7 +166,7 @@ const UsersForm = (props) => {
         variant="outlined"
         onClick={() => onCancel()}
       >
-        Cancel
+        취소
       </Button>
     </Grid>
   </Grid>

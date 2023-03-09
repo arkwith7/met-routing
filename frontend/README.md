@@ -17,9 +17,6 @@
   yarn start
   ```
 
-  ## Support
-  For any additional information please refer to [Flatlogic homepage](https://flatlogic.com).
-
 ## To start the project with Docker:
   ## Description:
 

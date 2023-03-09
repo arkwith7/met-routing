@@ -165,17 +165,17 @@ const EditUser = () => {
               aria-label='full width tabs example'
             >
               <Tab
-                label='ACCOUNT'
+                label='사용자계정'
                 icon={<PersonOutlineIcon />}
                 classes={{ wrapper: classes.icon }}
               />
               <Tab
-                label='PROFILE'
+                label='사용자정보'
                 icon={<PersonOutlineIcon />}
                 classes={{ wrapper: classes.icon }}
               />
               <Tab
-                label='CHANGE PASSWORD'
+                label='비밀번호변경'
                 icon={<LockIcon />}
                 classes={{ wrapper: classes.icon }}
               />
@@ -194,15 +194,16 @@ const EditUser = () => {
                     weight={'medium'}
                     style={{ marginBottom: 30 }}
                   >
-                    Account
+                    사용자 계정
                   </Typography>
                   <TextField
-                    label='User Name'
+                    label='사용자 ID'
                     value={data?.userName || ''}
                     onChange={handleChange}
                     name='userName'
                     variant='outlined'
                     style={{ marginBottom: 35 }}
+                    disabled
                   />
                   <TextField
                     label='Email'
@@ -211,7 +212,6 @@ const EditUser = () => {
                     onChange={handleChange}
                     variant='outlined'
                     style={{ marginBottom: 35 }}
-                    disabled
                   />
                   <FormControl variant='outlined' style={{ marginBottom: 35 }}>
                     <InputLabel id='demo-simple-select-outlined-label'>
@@ -238,7 +238,7 @@ const EditUser = () => {
                     weight={'medium'}
                     style={{ marginBottom: 35 }}
                   >
-                    Personal Information
+                    사용자 정보
                   </Typography>
                   <Typography weight={'medium'}>Photo:</Typography>
                   <div className={classes.galleryWrap}>
@@ -262,7 +262,7 @@ const EditUser = () => {
                     className={classes.uploadLabel}
                     style={{ cursor: 'pointer' }}
                   >
-                    {'Upload an image'}
+                    {'아바타 이미지 Upload'}
                     <input
                       style={{ display: 'none' }}
                       accept='image/*'
@@ -276,18 +276,19 @@ const EditUser = () => {
                     .PNG, .JPG, .JPEG
                   </Typography>
                   <TextField
-                    label='Name'
+                    label='사용자 ID'
                     variant='outlined'
-                    defaultValue='Name'
+                    defaultValue='User ID'
                     value={data && data.userName}
                     name='userName'
                     onChange={handleChange}
                     style={{ marginBottom: 35 }}
+                    disabled
                   />
                   <TextField
-                    label='Korean Name'
+                    label='사용자 이름'
                     variant='outlined'
-                    defaultValue={'Korean Name'}
+                    defaultValue={'한글성명'}
                     value={data && data.korName}
                     name='korName'
                     onChange={handleChange}
@@ -297,7 +298,7 @@ const EditUser = () => {
                     label='Phone'
                     variant='outlined'
                     style={{ marginBottom: 35 }}
-                    defaultValue={'1-555-666-7070'}
+                    defaultValue={'010-666-7070'}
                     value={data && data.phone}
                     name='phone'
                     onChange={handleChange}
@@ -311,7 +312,6 @@ const EditUser = () => {
                     value={data && data.email}
                     name='email'
                     onChange={handleChange}
-                    disabled
                   />
                 </>
               ) : tab === 2 ? (
@@ -321,7 +321,7 @@ const EditUser = () => {
                     weight={'medium'}
                     style={{ marginBottom: 35 }}
                   >
-                    Password
+                    비밀번호
                   </Typography>
                   <TextField
                     label='Current Password'
@@ -410,22 +410,22 @@ const EditUser = () => {
                   {tab !== 2 ? (
                     <>
                       <Button variant={'outlined'} color={'primary'}>
-                        Reset
+                        초기화
                       </Button>
                       <Button variant={'contained'} onClick={handleSubmit}>
-                        Save
+                        저장
                       </Button>
                     </>
                   ) : (
                     <>
                       <Button variant={'outlined'} color={'primary'}>
-                        Reset
+                        초기화
                       </Button>
                       <Button
                         variant={'contained'}
                         onClick={handleUpdatePassword}
                       >
-                        Save Password
+                        비밀번호 저장
                       </Button>
                     </>
                   )}

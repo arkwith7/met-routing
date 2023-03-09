@@ -60,7 +60,7 @@ const UsersTable = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
 
   const [filters, setFilters] = React.useState([
-    {label: 'User Name', title: 'userName'},{label: 'Korean Name', title: 'korName'},{label: 'Phone Number', title: 'phoneNumber'},{label: 'E-Mail', title: 'email'},
+    {label: '사용자 ID', title: 'userName'},{label: '성명', title: 'korName'},{label: '전화번호', title: 'phoneNumber'},{label: 'E-Mail', title: 'email'},
 
   ]);
 
@@ -202,21 +202,21 @@ const UsersTable = () => {
 
         flex: 0.6,
 
-      headerName: "User Name"
+      headerName: "사용자 ID"
       },
 
       { field: "korName",
 
         flex: 0.6,
 
-      headerName: "Korean Name"
+      headerName: "성명"
       },
 
       { field: "phoneNumber",
 
         flex: 0.6,
 
-      headerName: "Phone Number"
+      headerName: "전화번호"
       },
 
       { field: "email",
@@ -233,9 +233,9 @@ const UsersTable = () => {
 
       { field: "disabled",
 
-        renderCell: (params) => dataFormat.booleanFormatter(params.row),
+        renderCell: (params) => dataFormat.booleanFormatter(params.row.disabled),
 
-      headerName: "Disabled"
+      headerName: "비활성"
       },
 
       { field: "avatar",
@@ -256,12 +256,16 @@ const UsersTable = () => {
       }
   ];
 
+  // console.log("사용자정보 Data 검증...")
+  // console.log("columns = ",columns)
+
+  // console.log("사용자정보 Data 검증 끝...")
   return (
     <div>
-      <Widget title={<h4>{humanize('Users')}</h4>} disableWidgetMenu>
+      <Widget title={<h4>{humanize('사용자정보')}</h4>} disableWidgetMenu>
         <Box className={classes.actions}>
           <Link to="/admin/users/new" className={classes.element}>
-            <Button variant='contained'>New</Button>
+            <Button variant='contained'>신규</Button>
           </Link>
           <Button
             type='button'
@@ -269,7 +273,7 @@ const UsersTable = () => {
             className={classes.element}
             onClick={addFilter}
           >
-            Add Filter
+            조회조건설정
           </Button>
           <Button type='button' variant='contained' onClick={getUsersCSV} className={classes.element}>
             Export CSV
@@ -287,7 +291,7 @@ const UsersTable = () => {
             >
               <Grid item xs={3}>
                 <FormControl size="small" fullWidth>
-                  <InputLabel>Field</InputLabel>
+                  <InputLabel>Field</InputLabel>filters
                   <Select
                     label="Field"
                     name='selectedField'
@@ -360,7 +364,7 @@ const UsersTable = () => {
                   variant="outlined"
                   onClick={(e) => handleSubmit(e)}
                 >
-                  Apply
+                  적용
                 </Button>
               </Grid>
               <Grid item>
@@ -369,7 +373,7 @@ const UsersTable = () => {
                   variant="outlined"
                   onClick={handleReset}
                 >
-                  Clear
+                  초기화
                 </Button>
               </Grid>
             </Grid>
