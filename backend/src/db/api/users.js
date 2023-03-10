@@ -4,8 +4,8 @@ const FileDBApi = require('./file');
 const crypto = require('crypto');
 const Utils = require('../utils');
 
-  const bcrypt = require('bcrypt');
-  const config = require('../../config');
+const bcrypt = require('bcrypt');
+const config = require('../../config');
 
 const Sequelize = db.Sequelize;
 const Op = Sequelize.Op;
@@ -13,193 +13,193 @@ const Op = Sequelize.Op;
 module.exports = class UsersDBApi {
 
   static async create(data, options) {
-  const currentUser = (options && options.currentUser) || { id: null };
-  const transaction = (options && options.transaction) || undefined;
+    const currentUser = (options && options.currentUser) || { id: null };
+    const transaction = (options && options.transaction) || undefined;
 
-  const users = await db.users.create(
-  {
-  id: data.data.id || undefined,
+    const users = await db.users.create(
+      {
+        id: data.data.id || undefined,
 
-    userName: data.data.userName
-    ||
-    null
-,
+        userName: data.data.userName
+          ||
+          null
+        ,
 
-    korName: data.data.korName
-    ||
-    null
-,
+        korName: data.data.korName
+          ||
+          null
+        ,
 
-    phoneNumber: data.data.phoneNumber
-    ||
-    null
-,
+        phoneNumber: data.data.phoneNumber
+          ||
+          null
+        ,
 
-    email: data.data.email
-    ||
-    null
-,
+        email: data.data.email
+          ||
+          null
+        ,
 
-    role: data.data.role
-    ||
-    'user'
+        role: data.data.role
+          ||
+          'user'
 
-,
+        ,
 
-    disabled: data.data.disabled
-    ||
-    false
+        disabled: data.data.disabled
+          ||
+          false
 
-,
+        ,
 
-    password: data.data.password
-    ||
-    null
-,
+        password: data.data.password
+          ||
+          null
+        ,
 
-    emailVerified: data.data.emailVerified
-    ||
-    true
+        emailVerified: data.data.emailVerified
+          ||
+          true
 
-,
+        ,
 
-    emailVerificationToken: data.data.emailVerificationToken
-    ||
-    null
-,
+        emailVerificationToken: data.data.emailVerificationToken
+          ||
+          null
+        ,
 
-    emailVerificationTokenExpiresAt: data.data.emailVerificationTokenExpiresAt
-    ||
-    null
-,
+        emailVerificationTokenExpiresAt: data.data.emailVerificationTokenExpiresAt
+          ||
+          null
+        ,
 
-    passwordResetToken: data.data.passwordResetToken
-    ||
-    null
-,
+        passwordResetToken: data.data.passwordResetToken
+          ||
+          null
+        ,
 
-    passwordResetTokenExpiresAt: data.data.passwordResetTokenExpiresAt
-    ||
-    null
-,
+        passwordResetTokenExpiresAt: data.data.passwordResetTokenExpiresAt
+          ||
+          null
+        ,
 
-    provider: data.data.provider
-    ||
-    null
-,
+        provider: data.data.provider
+          ||
+          null
+        ,
 
-  // importHash: data.data.importHash || null,
-  // importHash:'qwertyuiop',
-  createdById: currentUser.id,
-  updatedById: currentUser.id,
-  },
-  { transaction },
-  );
-
-    await FileDBApi.replaceRelationFiles(
-    {
-    belongsTo: db.users.getTableName(),
-    belongsToColumn: 'avatar',
-    belongsToId: users.id,
-    },
-    data.data.avatar,
-    options,
+        // importHash: data.data.importHash || null,
+        // importHash:'qwertyuiop',
+        createdById: currentUser.id,
+        updatedById: currentUser.id,
+      },
+      { transaction },
     );
 
-  return users;
+    await FileDBApi.replaceRelationFiles(
+      {
+        belongsTo: db.users.getTableName(),
+        belongsToColumn: 'avatar',
+        belongsToId: users.id,
+      },
+      data.data.avatar,
+      options,
+    );
+
+    return users;
   }
 
   static async update(id, data, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const users = await db.users.findByPk(id, {
       transaction,
     });
 
-      if (data.password) {
-        data.password = bcrypt.hashSync(
-          data.password,
-          config.bcrypt.saltRounds,
-        );
-      } else {
-        data.password = users.password;
-      }
+    if (data.password) {
+      data.password = bcrypt.hashSync(
+        data.password,
+        config.bcrypt.saltRounds,
+      );
+    } else {
+      data.password = users.password;
+    }
 
     await users.update(
       {
 
         userName: data.userName
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         korName: data.korName
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         phoneNumber: data.phoneNumber
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         email: data.email
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         role: data.role
-        ||
-        'user'
+          ||
+          'user'
 
-,
+        ,
 
         disabled: data.disabled
-        ||
-        false
+          ||
+          false
 
-,
+        ,
 
         password: data.password
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         emailVerified: data.emailVerified
-        ||
-        true
+          ||
+          true
 
-,
+        ,
 
         emailVerificationToken: data.emailVerificationToken
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         emailVerificationTokenExpiresAt: data.emailVerificationTokenExpiresAt
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         passwordResetToken: data.passwordResetToken
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         passwordResetTokenExpiresAt: data.passwordResetTokenExpiresAt
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         provider: data.provider
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         updatedById: currentUser.id,
       },
-      {transaction},
+      { transaction },
     );
 
     await FileDBApi.replaceRelationFiles(
@@ -216,7 +216,7 @@ module.exports = class UsersDBApi {
   }
 
   static async remove(id, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const users = await db.users.findByPk(id, options);
@@ -246,7 +246,7 @@ module.exports = class UsersDBApi {
       return users;
     }
 
-    const output = users.get({plain: true});
+    const output = users.get({ plain: true });
 
     output.avatar = await users.getAvatar({
       transaction
@@ -479,35 +479,37 @@ module.exports = class UsersDBApi {
       }
     }
 
-    let { rows, count } = options?.countOnly ? {rows: [], count: await db.users.count({
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
-    )} : await db.users.findAndCountAll(
-        {
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
+    let { rows, count } = options?.countOnly ? {
+      rows: [], count: await db.users.count({
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
+      )
+    } : await db.users.findAndCountAll(
+      {
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
     );
 
-//    rows = await this._fillWithRelationsAndFilesForRows(
-//      rows,
-//      options,
-//    );
+    //    rows = await this._fillWithRelationsAndFilesForRows(
+    //      rows,
+    //      options,
+    //    );
 
     return { rows, count };
   }
@@ -529,7 +531,7 @@ module.exports = class UsersDBApi {
     }
 
     const records = await db.users.findAll({
-      attributes: [ 'id', 'userName' ],
+      attributes: ['id', 'userName'],
       where,
       limit: limit ? Number(limit) : undefined,
       orderBy: [['userName', 'ASC']],
@@ -552,7 +554,7 @@ module.exports = class UsersDBApi {
       },
       { transaction },
     );
-    console.log("신규 사용자 등록 완료.... 사용자ID :%s",users.userName)
+    console.log("신규 사용자 등록 완료.... 사용자ID :%s", users.userName)
 
     await users.update(
       {
@@ -648,7 +650,7 @@ module.exports = class UsersDBApi {
   }
 
   static async _generateToken(keyNames, email, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
     const users = await db.users.findOne(
       {
@@ -664,15 +666,15 @@ module.exports = class UsersDBApi {
       .toString('hex');
     const tokenExpiresAt = Date.now() + 360000;
 
-    if(users){
-        await users.update(
-          {
-            [keyNames[0]]: token,
-            [keyNames[1]]: tokenExpiresAt,
-            updatedById: currentUser.id,
-          },
-          {transaction},
-        );
+    if (users) {
+      await users.update(
+        {
+          [keyNames[0]]: token,
+          [keyNames[1]]: tokenExpiresAt,
+          updatedById: currentUser.id,
+        },
+        { transaction },
+      );
     }
 
     return token;

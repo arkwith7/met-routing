@@ -10,40 +10,39 @@ const Op = Sequelize.Op;
 module.exports = class Operation_cdDBApi {
 
   static async create(data, options) {
-  const currentUser = (options && options.currentUser) || { id: null };
-  const transaction = (options && options.transaction) || undefined;
+    const currentUser = (options && options.currentUser) || { id: null };
+    const transaction = (options && options.transaction) || undefined;
 
-  const operation_cd = await db.operation_cd.create(
-  {
-  id: data.id || undefined,
+    const operation_cd = await db.operation_cd.create(
+      {
+        id: data.id || undefined,
 
-    code: data.code
-    ||
-    null
-,
+        code: data.code
+          ||
+          null
+        ,
 
-    code_name: data.code_name
-    ||
-    null
-,
+        code_name: data.code_name
+          ||
+          null
+        ,
 
-    code_name_alias: data.code_name_alias
-    ||
-    null
-,
+        code_name_alias: data.code_name_alias
+          ||
+          null
+        ,
 
-  importHash: data.importHash || null,
-  createdById: currentUser.id,
-  updatedById: currentUser.id,
-  },
-  { transaction },
-  );
+        createdById: currentUser.id,
+        updatedById: currentUser.id,
+      },
+      { transaction },
+    );
 
-  return operation_cd;
+    return operation_cd;
   }
 
   static async update(id, data, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const operation_cd = await db.operation_cd.findByPk(id, {
@@ -54,30 +53,30 @@ module.exports = class Operation_cdDBApi {
       {
 
         code: data.code
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         code_name: data.code_name
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         code_name_alias: data.code_name_alias
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         updatedById: currentUser.id,
       },
-      {transaction},
+      { transaction },
     );
 
     return operation_cd;
   }
 
   static async remove(id, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const operation_cd = await db.operation_cd.findByPk(id, options);
@@ -107,7 +106,7 @@ module.exports = class Operation_cdDBApi {
       return operation_cd;
     }
 
-    const output = operation_cd.get({plain: true});
+    const output = operation_cd.get({ plain: true });
 
     return output;
   }
@@ -207,35 +206,37 @@ module.exports = class Operation_cdDBApi {
       }
     }
 
-    let { rows, count } = options?.countOnly ? {rows: [], count: await db.operation_cd.count({
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
-    )} : await db.operation_cd.findAndCountAll(
-        {
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
+    let { rows, count } = options?.countOnly ? {
+      rows: [], count: await db.operation_cd.count({
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
+      )
+    } : await db.operation_cd.findAndCountAll(
+      {
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
     );
 
-//    rows = await this._fillWithRelationsAndFilesForRows(
-//      rows,
-//      options,
-//    );
+    //    rows = await this._fillWithRelationsAndFilesForRows(
+    //      rows,
+    //      options,
+    //    );
 
     return { rows, count };
   }
@@ -257,7 +258,7 @@ module.exports = class Operation_cdDBApi {
     }
 
     const records = await db.operation_cd.findAll({
-      attributes: [ 'id', 'id' ],
+      attributes: ['id', 'id'],
       where,
       limit: limit ? Number(limit) : undefined,
       orderBy: [['id', 'ASC']],
