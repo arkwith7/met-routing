@@ -109,6 +109,8 @@ function loginUser(
   setError,
   social = ""
 ) {
+  console.log("로그인 프로세스 시작...");
+
   setError(false);
   setIsLoading(true);
   // We check if app runs with backend mode
@@ -117,6 +119,7 @@ function loginUser(
     doInit()(dispatch);
     setIsLoading(false);
     receiveToken("token", dispatch);
+    console.log("config.isBackend :",config.isBackend);
   } else {
     if (!!social) {
       window.location.href = config.baseURLApi + "/auth/signin/" + social + '?app=' + config.redirectUrl;
@@ -125,6 +128,9 @@ function loginUser(
         .post("/auth/signin/local", { email: login, password })
         .then(res => {
           const token = res.data;
+          // const token = res.data.user.token;
+          console.log("로그인 처리 res",res);
+          console.log("로그인 처리 token",token);
           setError(null);
           setIsLoading(false);
           receiveToken(token, dispatch);
@@ -179,10 +185,10 @@ export function receiveToken(token, dispatch) {
     delete user.id;
   } else {
     user = {
-      email: config.auth.email
+      userName: config.auth.userName
     };
   }
-
+  console.log("사용자정보 로컬에 저장 user :",user)
   delete user.id;
   localStorage.setItem("token", token);
   localStorage.setItem("user", JSON.stringify(user));

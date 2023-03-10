@@ -53,12 +53,12 @@ const Insurance_cdForm = (props) => {
 
   const title = () => {
   if(isProfile) {
-  return 'Edit My Profile';
+  return 'My Info. 수정';
   }
 
   return isEditing
-  ? 'Edit Insurance_cd'
-  : 'Add Insurance_cd';
+  ? '수가코드 수정'
+  : '수가코드 등록';
   };
 
   const renderForm = () => (

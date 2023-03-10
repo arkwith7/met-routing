@@ -202,28 +202,28 @@ const Insurance_cdTable = () => {
 
         flex: 0.6,
 
-      headerName: "Code"
+      headerName: "코드"
       },
 
       { field: "code_name",
 
         flex: 0.6,
 
-      headerName: "Code Name"
+      headerName: "행위명"
       },
 
       { field: "is_db",
 
         renderCell: (params) => dataFormat.booleanFormatter(params.row),
 
-      headerName: "Is Db"
+      headerName: "DB생성"
       },
 
       { field: "is_operation",
 
         flex: 0.6,
 
-      headerName: "Is Operation"
+      headerName: "수술해당"
       },
 
       {
@@ -238,10 +238,10 @@ const Insurance_cdTable = () => {
 
   return (
     <div>
-      <Widget title={<h4>{humanize('Insurance_cd')}</h4>} disableWidgetMenu>
+      <Widget title={<h4>{humanize('수가코드정보')}</h4>} disableWidgetMenu>
         <Box className={classes.actions}>
           <Link to="/admin/insurance_cd/new" className={classes.element}>
-            <Button variant='contained'>New</Button>
+            <Button variant='contained'>신규</Button>
           </Link>
           <Button
             type='button'
@@ -249,7 +249,7 @@ const Insurance_cdTable = () => {
             className={classes.element}
             onClick={addFilter}
           >
-            Add Filter
+            조회조건설정
           </Button>
           <Button type='button' variant='contained' onClick={getInsurance_cdCSV} className={classes.element}>
             Export CSV
@@ -403,7 +403,7 @@ const Insurance_cdTable = () => {
                 : 'http://localhost:8080/api-docs/#/Insurance_cd'
             }
           >
-            API documentation for insurance_cd
+            API documentation for 수가코드정보
           </LinkMaterial>
         </div>
       </Widget>

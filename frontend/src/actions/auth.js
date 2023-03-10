@@ -95,6 +95,7 @@ export function loginUser(creds) {
       } else if (creds.email.length > 0 && creds.password.length > 0) {
         axios.post("/auth/signin/local", creds).then(res => {
           const token = res.data;
+          console.log("서버전송 로근인 사용자 정보 : ",token)
           dispatch(receiveToken(token));
           dispatch(doInit());
           dispatch(push('/app'));

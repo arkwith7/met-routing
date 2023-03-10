@@ -76,7 +76,7 @@ const actions = {
       });
 
       if (isProfile) {
-        showSnackbar({ type: 'success', message: 'Profile updated' });
+        showSnackbar({ type: 'success', message: 'My Info.가 수정되었습니다.' });
       } else {
         showSnackbar({ type: 'success', message: 'Ocr_log updated' });
         dispatch(push('/admin/ocr_log'));

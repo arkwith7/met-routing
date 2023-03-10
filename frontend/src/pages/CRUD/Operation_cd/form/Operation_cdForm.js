@@ -53,12 +53,12 @@ const Operation_cdForm = (props) => {
 
   const title = () => {
   if(isProfile) {
-  return 'Edit My Profile';
+  return 'My Info. 수정';
   }
 
   return isEditing
-  ? 'Edit Operation_cd'
-  : 'Add Operation_cd';
+  ? '수술코드 수정'
+  : '수술코드 등록';
   };
 
   const renderForm = () => (

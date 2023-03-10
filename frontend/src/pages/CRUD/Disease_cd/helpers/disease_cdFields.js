@@ -2,7 +2,7 @@
 const disease_cdFields = {
 	id: { type: 'id', label: 'ID' },
 
-    code: { type: 'string', label: 'Code',
+    code: { type: 'string', label: '코드',
 
     options: [
 
@@ -12,7 +12,7 @@ const disease_cdFields = {
 
     },
 
-    code_name: { type: 'string', label: 'Code Name',
+    code_name: { type: 'string', label: '질병명',
 
     options: [
 
@@ -22,7 +22,7 @@ const disease_cdFields = {
 
     },
 
-    code_name_alias: { type: 'string', label: 'Code Name Alias',
+    code_name_alias: { type: 'string', label: '유사질병명',
 
     options: [
 
@@ -32,7 +32,7 @@ const disease_cdFields = {
 
     },
 
-    body_part: { type: 'string', label: 'Body Part',
+    body_part: { type: 'string', label: '신체부위',
 
     options: [
 
@@ -42,7 +42,7 @@ const disease_cdFields = {
 
     },
 
-    left_or_right: { type: 'string', label: 'Left Or Right',
+    left_or_right: { type: 'string', label: '좌우구분',
 
     options: [
 

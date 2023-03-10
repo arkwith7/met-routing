@@ -53,12 +53,12 @@ const Disease_cdForm = (props) => {
 
   const title = () => {
   if(isProfile) {
-  return 'Edit My Profile';
+  return 'My Info. 수정';
   }
 
   return isEditing
-  ? 'Edit Disease_cd'
-  : 'Add Disease_cd';
+  ? '질병코드 수정'
+  : '질병코드 등록';
   };
 
   const renderForm = () => (
@@ -122,7 +122,7 @@ const Disease_cdForm = (props) => {
         variant="contained"
         onClick={form.handleSubmit}
       >
-        Save
+        저장
       </Button>
     </Grid>
     <Grid item>
@@ -131,7 +131,7 @@ const Disease_cdForm = (props) => {
         variant="outlined"
         onClick={form.handleReset}
       >
-        Reset
+        초기화
       </Button>
     </Grid>
     <Grid item>
@@ -140,7 +140,7 @@ const Disease_cdForm = (props) => {
         variant="outlined"
         onClick={() => onCancel()}
       >
-        Cancel
+        취소
       </Button>
     </Grid>
   </Grid>

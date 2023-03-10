@@ -60,7 +60,7 @@ const Operation_cdTable = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
 
   const [filters, setFilters] = React.useState([
-    {label: 'Code', title: 'code'},{label: 'Code Name', title: 'code_name'},{label: 'Code Name Alias', title: 'code_name_alias'},
+    {label: '코드', title: 'code'},{label: '수술명', title: 'code_name'},{label: '유사수술명', title: 'code_name_alias'},
 
   ]);
 
@@ -202,21 +202,21 @@ const Operation_cdTable = () => {
 
         flex: 0.6,
 
-      headerName: "Code"
+      headerName: "코드"
       },
 
       { field: "code_name",
 
         flex: 0.6,
 
-      headerName: "Code Name"
+      headerName: "수술명"
       },
 
       { field: "code_name_alias",
 
         flex: 0.6,
 
-      headerName: "Code Name Alias"
+      headerName: "유사수술명"
       },
 
       {
@@ -231,10 +231,10 @@ const Operation_cdTable = () => {
 
   return (
     <div>
-      <Widget title={<h4>{humanize('Operation_cd')}</h4>} disableWidgetMenu>
+      <Widget title={<h4>{humanize('수술코드정보')}</h4>} disableWidgetMenu>
         <Box className={classes.actions}>
           <Link to="/admin/operation_cd/new" className={classes.element}>
-            <Button variant='contained'>New</Button>
+            <Button variant='contained'>신규</Button>
           </Link>
           <Button
             type='button'
@@ -242,7 +242,7 @@ const Operation_cdTable = () => {
             className={classes.element}
             onClick={addFilter}
           >
-            Add Filter
+            조회조건설정
           </Button>
           <Button type='button' variant='contained' onClick={getOperation_cdCSV} className={classes.element}>
             Export CSV
@@ -333,7 +333,7 @@ const Operation_cdTable = () => {
                   variant="outlined"
                   onClick={(e) => handleSubmit(e)}
                 >
-                  Apply
+                  적용
                 </Button>
               </Grid>
               <Grid item>
@@ -342,7 +342,7 @@ const Operation_cdTable = () => {
                   variant="outlined"
                   onClick={handleReset}
                 >
-                  Clear
+                  초기화
                 </Button>
               </Grid>
             </Grid>
@@ -396,7 +396,7 @@ const Operation_cdTable = () => {
                 : 'http://localhost:8080/api-docs/#/Operation_cd'
             }
           >
-            API documentation for operation_cd
+            API documentation for 수술코드정보
           </LinkMaterial>
         </div>
       </Widget>

@@ -19,7 +19,7 @@ import {
 import useStyles from "./styles";
 import useStyles2 from "./components/SidebarLink/styles";
 
-  // components
+// components
 import SidebarLink from "./components/SidebarLink/SidebarLink";
 
 // context
@@ -30,6 +30,7 @@ import {
 } from "../../context/LayoutContext";
 
 function Sidebar({ location, structure }) {
+  console.log("위치 location",location)
   let classes = useStyles();
   let classes2 = useStyles2()
   let theme = useTheme();
@@ -54,7 +55,17 @@ function Sidebar({ location, structure }) {
 
   const isSidebarOpenedWrapper = useMemo(() => !isPermanent ? !isSidebarOpened : isSidebarOpened, [isPermanent, isSidebarOpened]);
 
-  useEffect(function() {
+  // 권한별 메뉴 표시를 위해 사용자 권한을 가져온다.
+  const tempUser = localStorage.getItem('user');
+  const user = JSON.parse(tempUser)
+  console.log("user datatype", typeof (user));
+  // const {userName, userRole} = user;
+  console.log("Sidebar user", user);
+  console.log("Sidebar userName", user.userName);
+  // const userRole = user.userRole;
+  console.log("Sidebar userRole", user.userRole);
+
+  useEffect(function () {
     window.addEventListener("resize", handleWindowWidthChange);
     handleWindowWidthChange();
     return function cleanup() {
@@ -92,43 +103,50 @@ function Sidebar({ location, structure }) {
         className={classes.sidebarList}
         classes={{ padding: classes.padding }}
       >
-          <SidebarLink
-            label="Dashboard"
-            link="/admin/dashboard"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<DashboardIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
+        <SidebarLink
+          label="Dashboard"
+          link="/admin/dashboard"
+          location={location}
+          isSidebarOpened={isSidebarOpenedWrapper}
+          icon={<DashboardIcon />}
+          toggleDrawer={toggleDrawer(true)}
+        />
 
-          <SidebarLink
-            label="My Info."
-            link="/admin/user/edit"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<ProfileIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
+        <SidebarLink
+          label="My Info."
+          link="/admin/user/edit"
+          location={location}
+          isSidebarOpened={isSidebarOpenedWrapper}
+          icon={<ProfileIcon />}
+          toggleDrawer={toggleDrawer(true)}
+        />
 
-          <SidebarLink
-            label="사용자정보"
-            link="/admin/users"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<PeopleAltIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label="사용자정보"
+              link="/admin/users"
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<PeopleAltIcon />}
+              toggleDrawer={toggleDrawer(true)}
+            />
+          )
+        }
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label="OCR 서류정보"
+              link="/admin/doc_master"
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<PlagiarismIcon />}
+              toggleDrawer={toggleDrawer(true)}
+            />
+          )
+        }
 
-          <SidebarLink
-            label="OCR 서류정보"
-            link="/admin/doc_master"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<PlagiarismIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
-
-          {/* <SidebarLink
+            {/* <SidebarLink
             label="Doc extraction items"
             link="/admin/doc_extraction_items"
             location={location}
@@ -137,93 +155,118 @@ function Sidebar({ location, structure }) {
             toggleDrawer={toggleDrawer(true)}
           /> */}
 
-          <SidebarLink
-            label="질병코드정보"
-            link="/admin/disease_cd"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<CoreIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
 
-          <SidebarLink
-            label="수술코드정보"
-            link="/admin/operation_cd"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<CoreIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label="질병코드정보"
+              link="/admin/disease_cd"
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<CoreIcon />}
+              toggleDrawer={toggleDrawer(true)}
+            />
+          )
+        }
 
-          <SidebarLink
-            label="수가코드정보"
-            link="/admin/insurance_cd"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<CoreIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label="수술코드정보"
+              link="/admin/operation_cd"
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<CoreIcon />}
+              toggleDrawer={toggleDrawer(true)}
+            />
+          )
+        }
 
-          <SidebarLink
-            label="Ocr Log Info."
-            link="/admin/ocr_log"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<CoreIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label="수가코드정보"
+              link="/admin/insurance_cd"
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<CoreIcon />}
+              toggleDrawer={toggleDrawer(true)}
+            />
+          )
+        }
 
-          <SidebarLink
-            label="Documentation"
-            link="/documentation"
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<DocumentationIcon />}
-            toggleDrawer={toggleDrawer(true)}
-            children={[
-              {
-                label: "Getting Started",
-                link: "/documentation/getting-started",
-                children: [
-                  {
-                    label: "Quick start",
-                    link: "/documentation/getting-started/quick-start"
-                  }
-                ]
-              },
-              {
-                label: "Components",
-                link: "/documentation/components",
-                children: [
-                  {
-                    label: "Typography",
-                    link: "/documentation/components/typography"
-                  },
-                  {
-                    label: "Header",
-                    link: "/documentation/components/header"
-                  },
-                  {
-                    label: "Sidebar",
-                    link: "/documentation/components/sidebar"
-                  },
-                  {
-                    label: "Buttons",
-                    link: "/documentation/components/buttons"
-                  },
-                ]
-              },
-            ]}
-          />
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label="Ocr Log Info."
+              link="/admin/ocr_log"
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<CoreIcon />}
+              toggleDrawer={toggleDrawer(true)}
+            />
+          )
+        }
 
-          <SidebarLink
-            label='API docs'
-            link='/admin/api-docs'
-            location={location}
-            isSidebarOpened={isSidebarOpenedWrapper}
-            icon={<DocumentationIcon />}
-            toggleDrawer={toggleDrawer(true)}
-          />
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label="Documentation"
+              link="/documentation"
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<DocumentationIcon />}
+              toggleDrawer={toggleDrawer(true)}
+              children={[
+                {
+                  label: "Getting Started",
+                  link: "/documentation/getting-started",
+                  children: [
+                    {
+                      label: "Quick start",
+                      link: "/documentation/getting-started/quick-start"
+                    }
+                  ]
+                },
+                {
+                  label: "Components",
+                  link: "/documentation/components",
+                  children: [
+                    {
+                      label: "Typography",
+                      link: "/documentation/components/typography"
+                    },
+                    {
+                      label: "Header",
+                      link: "/documentation/components/header"
+                    },
+                    {
+                      label: "Sidebar",
+                      link: "/documentation/components/sidebar"
+                    },
+                    {
+                      label: "Buttons",
+                      link: "/documentation/components/buttons"
+                    },
+                  ]
+                },
+              ]}
+            />
+          )
+        }
+
+        {
+          user.userRole === 'admin' && (
+            <SidebarLink
+              label='API docs'
+              link='/admin/api-docs'
+              location={location}
+              isSidebarOpened={isSidebarOpenedWrapper}
+              icon={<DocumentationIcon />}
+              toggleDrawer={toggleDrawer(true)}
+            />
+          )
+        }
 
       </List>
     </Drawer>

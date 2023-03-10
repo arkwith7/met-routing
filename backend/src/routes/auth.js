@@ -59,6 +59,7 @@ const router = express.Router();
 
 router.post('/signin/local', wrapAsync(async (req, res) => {
   const payload = await AuthService.signin(req.body.email, req.body.password, req,);
+  console.log("백엔드 로그인 처리 결과 payload : ", payload);
   res.status(200).send(payload);
 }));
 

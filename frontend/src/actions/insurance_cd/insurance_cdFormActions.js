@@ -46,7 +46,7 @@ const actions = {
         dispatch({
           type: 'INSURANCE_CD_FORM_CREATE_SUCCESS',
         });
-        showSnackbar({ type: 'success', message: 'Insurance_cd created' });
+        showSnackbar({ type: 'success', message: '수가코드정보가 생성되었습니다.' });
         dispatch(push('/admin/insurance_cd'));
       })
     } catch (error) {
@@ -76,9 +76,9 @@ const actions = {
       });
 
       if (isProfile) {
-        showSnackbar({ type: 'success', message: 'Profile updated' });
+        showSnackbar({ type: 'success', message: 'My Info.가 수정되었습니다.' });
       } else {
-        showSnackbar({ type: 'success', message: 'Insurance_cd updated' });
+        showSnackbar({ type: 'success', message: '수가코드정보가 수정되었습니다.' });
         dispatch(push('/admin/insurance_cd'));
       }
     } catch (error) {

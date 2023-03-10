@@ -202,56 +202,56 @@ const Doc_masterTable = () => {
 
         flex: 0.6,
 
-      headerName: "Doc Name"
+      headerName: "서류명"
       },
 
       { field: "doc_class_cd",
 
         flex: 0.6,
 
-      headerName: "Doc Class Cd"
+      headerName: "문서분류코드"
       },
 
       { field: "doc_subclass_cd",
 
         flex: 0.6,
 
-      headerName: "Doc Subclass Cd"
+      headerName: "하위분류코드"
       },
 
       { field: "doc_class_name",
 
         flex: 0.6,
 
-      headerName: "Doc Class Name"
+      headerName: "문서분류명"
       },
 
       { field: "doc_subclass_name",
 
         flex: 0.6,
 
-      headerName: "Doc Subclass Name"
+      headerName: "문서하위분류명"
       },
 
       { field: "is_extract",
 
         renderCell: (params) => dataFormat.booleanFormatter(params.row),
 
-      headerName: "Is Extract"
+      headerName: "추출여부"
       },
 
       { field: "doc_name_alias",
 
         flex: 0.6,
 
-      headerName: "Doc Name Alias"
+      headerName: "유사서류명"
       },
 
       { field: "doc_keyword",
 
         flex: 0.6,
 
-      headerName: "Doc Keyword"
+      headerName: "서류내 Keyword"
       },
 
       {
@@ -266,10 +266,10 @@ const Doc_masterTable = () => {
 
   return (
     <div>
-      <Widget title={<h4>{humanize('Doc_master')}</h4>} disableWidgetMenu>
+      <Widget title={<h4>{humanize('OCR 서류정보')}</h4>} disableWidgetMenu>
         <Box className={classes.actions}>
           <Link to="/admin/doc_master/new" className={classes.element}>
-            <Button variant='contained'>New</Button>
+            <Button variant='contained'>신규</Button>
           </Link>
           <Button
             type='button'
@@ -277,7 +277,7 @@ const Doc_masterTable = () => {
             className={classes.element}
             onClick={addFilter}
           >
-            Add Filter
+            조회조건설정
           </Button>
           <Button type='button' variant='contained' onClick={getDoc_masterCSV} className={classes.element}>
             Export CSV

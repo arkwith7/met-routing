@@ -47,7 +47,7 @@ const getGreeting = () => {
 
 function Login(props) {
 
-  console.log("새로운 로그인 페이지입니다...")
+  console.log("로그인 페이지입니다...")
   let classes = useStyles();
   const tab = new URLSearchParams(props.location.search).get('tab');
 
@@ -121,7 +121,7 @@ function Login(props) {
               }
             >
               <Typography className={classes.errorMessage}>
-                Something is wrong with your login or password :(
+                사용자 ID 또는 비밀번호가 잘못 되었습니다.
               </Typography>
             </Grow>
             <Input

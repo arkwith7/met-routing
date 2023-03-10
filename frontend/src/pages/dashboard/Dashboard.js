@@ -72,7 +72,7 @@ const Dashboard = () => {
 
     <Grid item xs={12} sm={6} lg={4} xl={3}>
         <Link to={'/admin/users'} style={{ textDecoration: 'none' }}>
-          <Widget title={'Users'}>
+          <Widget title={'사용자정보'}>
             <div
               style={{
                 display: 'flex',
@@ -80,7 +80,7 @@ const Dashboard = () => {
               }}
             >
               <InfoIcon color='primary' sx={{ mr: 1 }} />
-              <p className={classes.widgetText}>Users: <span className={classes.widgetTextCount}>{users}</span></p>
+              <p className={classes.widgetText}>사용자: <span className={classes.widgetTextCount}>{users}</span>명</p>
             </div>
           </Widget>
         </Link>
@@ -88,7 +88,7 @@ const Dashboard = () => {
 
     <Grid item xs={12} sm={6} lg={4} xl={3}>
         <Link to={'/admin/doc_master'} style={{ textDecoration: 'none' }}>
-          <Widget title={'Doc_master'}>
+          <Widget title={'OCR 서류정보'}>
             <div
               style={{
                 display: 'flex',
@@ -96,13 +96,13 @@ const Dashboard = () => {
               }}
             >
               <InfoIcon color='primary' sx={{ mr: 1 }} />
-              <p className={classes.widgetText}>Doc_master: <span className={classes.widgetTextCount}>{doc_master}</span></p>
+              <p className={classes.widgetText}>OCR용 서류: <span className={classes.widgetTextCount}>{doc_master}</span>건</p>
             </div>
           </Widget>
         </Link>
         </Grid>
 
-    <Grid item xs={12} sm={6} lg={4} xl={3}>
+    {/* <Grid item xs={12} sm={6} lg={4} xl={3}>
         <Link to={'/admin/doc_extraction_items'} style={{ textDecoration: 'none' }}>
           <Widget title={'Doc_extraction_items'}>
             <div
@@ -116,11 +116,11 @@ const Dashboard = () => {
             </div>
           </Widget>
         </Link>
-        </Grid>
+        </Grid> */}
 
     <Grid item xs={12} sm={6} lg={4} xl={3}>
         <Link to={'/admin/disease_cd'} style={{ textDecoration: 'none' }}>
-          <Widget title={'Disease_cd'}>
+          <Widget title={'질병코드정보'}>
             <div
               style={{
                 display: 'flex',
@@ -128,7 +128,7 @@ const Dashboard = () => {
               }}
             >
               <InfoIcon color='primary' sx={{ mr: 1 }} />
-              <p className={classes.widgetText}>Disease_cd: <span className={classes.widgetTextCount}>{disease_cd}</span></p>
+              <p className={classes.widgetText}>질병코드: <span className={classes.widgetTextCount}>{disease_cd}</span>건</p>
             </div>
           </Widget>
         </Link>
@@ -136,7 +136,7 @@ const Dashboard = () => {
 
     <Grid item xs={12} sm={6} lg={4} xl={3}>
         <Link to={'/admin/operation_cd'} style={{ textDecoration: 'none' }}>
-          <Widget title={'Operation_cd'}>
+          <Widget title={'수술코드정보'}>
             <div
               style={{
                 display: 'flex',
@@ -144,7 +144,7 @@ const Dashboard = () => {
               }}
             >
               <InfoIcon color='primary' sx={{ mr: 1 }} />
-              <p className={classes.widgetText}>Operation_cd: <span className={classes.widgetTextCount}>{operation_cd}</span></p>
+              <p className={classes.widgetText}>수술코드: <span className={classes.widgetTextCount}>{operation_cd}</span>건</p>
             </div>
           </Widget>
         </Link>
@@ -152,7 +152,7 @@ const Dashboard = () => {
 
     <Grid item xs={12} sm={6} lg={4} xl={3}>
         <Link to={'/admin/insurance_cd'} style={{ textDecoration: 'none' }}>
-          <Widget title={'Insurance_cd'}>
+          <Widget title={'수가코드정보'}>
             <div
               style={{
                 display: 'flex',
@@ -160,7 +160,7 @@ const Dashboard = () => {
               }}
             >
               <InfoIcon color='primary' sx={{ mr: 1 }} />
-              <p className={classes.widgetText}>Insurance_cd: <span className={classes.widgetTextCount}>{insurance_cd}</span></p>
+              <p className={classes.widgetText}>수가코드: <span className={classes.widgetTextCount}>{insurance_cd}</span>건</p>
             </div>
           </Widget>
         </Link>
@@ -168,7 +168,7 @@ const Dashboard = () => {
 
     <Grid item xs={12} sm={6} lg={4} xl={3}>
         <Link to={'/admin/ocr_log'} style={{ textDecoration: 'none' }}>
-          <Widget title={'Ocr_log'}>
+          <Widget title={'OCR수행로그'}>
             <div
               style={{
                 display: 'flex',
@@ -176,7 +176,7 @@ const Dashboard = () => {
               }}
             >
               <InfoIcon color='primary' sx={{ mr: 1 }} />
-              <p className={classes.widgetText}>Ocr_log: <span className={classes.widgetTextCount}>{ocr_log}</span></p>
+              <p className={classes.widgetText}>OCR처리: <span className={classes.widgetTextCount}>{ocr_log}</span>건</p>
             </div>
           </Widget>
         </Link>

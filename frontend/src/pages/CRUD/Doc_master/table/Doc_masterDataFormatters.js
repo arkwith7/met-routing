@@ -25,7 +25,8 @@ function imageFormatter(cell, key) {
 };
 
 function booleanFormatter(cell) {
-    return cell
+  console.log("항목추출여부:",cell.is_extract);
+    return cell.is_extract
       ? 'Yes'
       : 'No';
 };

@@ -2,7 +2,7 @@
 const operation_cdFields = {
 	id: { type: 'id', label: 'ID' },
 
-    code: { type: 'string', label: 'Code',
+    code: { type: 'string', label: '코드',
 
     options: [
 
@@ -12,7 +12,7 @@ const operation_cdFields = {
 
     },
 
-    code_name: { type: 'string', label: 'Code Name',
+    code_name: { type: 'string', label: '수술명',
 
     options: [
 
@@ -22,7 +22,7 @@ const operation_cdFields = {
 
     },
 
-    code_name_alias: { type: 'string', label: 'Code Name Alias',
+    code_name_alias: { type: 'string', label: '유사수술명',
 
     options: [
 

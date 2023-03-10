@@ -2,7 +2,7 @@
 const insurance_cdFields = {
 	id: { type: 'id', label: 'ID' },
 
-    code: { type: 'string', label: 'Code',
+    code: { type: 'string', label: '코드',
 
     options: [
 
@@ -12,7 +12,7 @@ const insurance_cdFields = {
 
     },
 
-    code_name: { type: 'string', label: 'Code Name',
+    code_name: { type: 'string', label: '행위명',
 
     options: [
 
@@ -22,7 +22,7 @@ const insurance_cdFields = {
 
     },
 
-    is_db: { type: 'boolean', label: 'Is Db',
+    is_db: { type: 'boolean', label: 'DB생성',
 
     options: [
 
@@ -32,7 +32,7 @@ const insurance_cdFields = {
 
     },
 
-    is_operation: { type: 'string', label: 'Is Operation',
+    is_operation: { type: 'string', label: '수술해당',
 
     options: [
 

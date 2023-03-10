@@ -53,12 +53,12 @@ const Doc_masterForm = (props) => {
 
   const title = () => {
   if(isProfile) {
-  return 'Edit My Profile';
+  return 'My Info. 수정';
   }
 
   return isEditing
-  ? 'Edit Doc_master'
-  : 'Add Doc_master';
+  ? 'OCR 서류정보 수정'
+  : 'OCR 서류정보 등록';
   };
 
   const renderForm = () => (
@@ -145,7 +145,7 @@ const Doc_masterForm = (props) => {
         variant="contained"
         onClick={form.handleSubmit}
       >
-        Save
+        저장
       </Button>
     </Grid>
     <Grid item>
@@ -154,7 +154,7 @@ const Doc_masterForm = (props) => {
         variant="outlined"
         onClick={form.handleReset}
       >
-        Reset
+        초기화
       </Button>
     </Grid>
     <Grid item>
@@ -163,7 +163,7 @@ const Doc_masterForm = (props) => {
         variant="outlined"
         onClick={() => onCancel()}
       >
-        Cancel
+        취소
       </Button>
     </Grid>
   </Grid>

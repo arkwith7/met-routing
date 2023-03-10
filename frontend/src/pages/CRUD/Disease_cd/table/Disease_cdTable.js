@@ -202,35 +202,35 @@ const Disease_cdTable = () => {
 
         flex: 0.6,
 
-      headerName: "Code"
+      headerName: "코드"
       },
 
       { field: "code_name",
 
         flex: 0.6,
 
-      headerName: "Code Name"
+      headerName: "질병명"
       },
 
       { field: "code_name_alias",
 
         flex: 0.6,
 
-      headerName: "Code Name Alias"
+      headerName: "유사질병명"
       },
 
       { field: "body_part",
 
         flex: 0.6,
 
-      headerName: "Body Part"
+      headerName: "신체부위"
       },
 
       { field: "left_or_right",
 
         flex: 0.6,
 
-      headerName: "Left Or Right"
+      headerName: "좌우구분"
       },
 
       {
@@ -245,10 +245,10 @@ const Disease_cdTable = () => {
 
   return (
     <div>
-      <Widget title={<h4>{humanize('Disease_cd')}</h4>} disableWidgetMenu>
+      <Widget title={<h4>{humanize('질병코드정보')}</h4>} disableWidgetMenu>
         <Box className={classes.actions}>
           <Link to="/admin/disease_cd/new" className={classes.element}>
-            <Button variant='contained'>New</Button>
+            <Button variant='contained'>신규</Button>
           </Link>
           <Button
             type='button'
@@ -256,7 +256,7 @@ const Disease_cdTable = () => {
             className={classes.element}
             onClick={addFilter}
           >
-            Add Filter
+            조회조건설정
           </Button>
           <Button type='button' variant='contained' onClick={getDisease_cdCSV} className={classes.element}>
             Export CSV
@@ -347,7 +347,7 @@ const Disease_cdTable = () => {
                   variant="outlined"
                   onClick={(e) => handleSubmit(e)}
                 >
-                  Apply
+                  적용
                 </Button>
               </Grid>
               <Grid item>
@@ -356,7 +356,7 @@ const Disease_cdTable = () => {
                   variant="outlined"
                   onClick={handleReset}
                 >
-                  Clear
+                  초기화
                 </Button>
               </Grid>
             </Grid>
@@ -410,7 +410,7 @@ const Disease_cdTable = () => {
                 : 'http://localhost:8080/api-docs/#/Disease_cd'
             }
           >
-            API documentation for disease_cd
+            API documentation for 질병코드정보
           </LinkMaterial>
         </div>
       </Widget>

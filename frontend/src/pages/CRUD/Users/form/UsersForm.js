@@ -53,7 +53,7 @@ const UsersForm = (props) => {
 
   const title = () => {
   if(isProfile) {
-  return 'Edit My Profile';
+  return 'My Info. 수정';
   }
 
   return isEditing

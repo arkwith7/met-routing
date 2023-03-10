@@ -202,35 +202,35 @@ const Ocr_logTable = () => {
 
         renderCell: (params) => dataFormat.dateTimeFormatter(params.value),
 
-      headerName: "Ocr Time"
+      headerName: "OCR처리시간"
       },
 
       { field: "registration_no",
 
         flex: 0.6,
 
-      headerName: "Registration No"
+      headerName: "사건접수번호"
       },
 
       { field: "doc_name",
 
         flex: 0.6,
 
-      headerName: "Doc Name"
+      headerName: "서류명"
       },
 
       { field: "is_success",
 
         renderCell: (params) => dataFormat.booleanFormatter(params.row),
 
-      headerName: "Is Success"
+      headerName: "성공여부"
       },
 
       { field: "is_classification",
 
         flex: 0.6,
 
-      headerName: "Is Classification"
+      headerName: "분류여부"
       },
 
       {
@@ -245,18 +245,18 @@ const Ocr_logTable = () => {
 
   return (
     <div>
-      <Widget title={<h4>{humanize('Ocr_log')}</h4>} disableWidgetMenu>
+      <Widget title={<h4>{humanize('OCR처리로그')}</h4>} disableWidgetMenu>
         <Box className={classes.actions}>
-          <Link to="/admin/ocr_log/new" className={classes.element}>
+          {/* <Link to="/admin/ocr_log/new" className={classes.element}>
             <Button variant='contained'>New</Button>
-          </Link>
+          </Link> */}
           <Button
             type='button'
             variant="contained"
             className={classes.element}
             onClick={addFilter}
           >
-            Add Filter
+            조회조건설정
           </Button>
           <Button type='button' variant='contained' onClick={getOcr_logCSV} className={classes.element}>
             Export CSV
@@ -347,7 +347,7 @@ const Ocr_logTable = () => {
                   variant="outlined"
                   onClick={(e) => handleSubmit(e)}
                 >
-                  Apply
+                  적용
                 </Button>
               </Grid>
               <Grid item>
@@ -356,7 +356,7 @@ const Ocr_logTable = () => {
                   variant="outlined"
                   onClick={handleReset}
                 >
-                  Clear
+                  초기화
                 </Button>
               </Grid>
             </Grid>
@@ -410,7 +410,7 @@ const Ocr_logTable = () => {
                 : 'http://localhost:8080/api-docs/#/Ocr_log'
             }
           >
-            API documentation for ocr_log
+            API documentation for OCR수행로그
           </LinkMaterial>
         </div>
       </Widget>

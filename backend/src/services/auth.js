@@ -135,9 +135,12 @@ class Auth {
     const data = {
       user: {
         id: user.id,
-        userName: user.userName
+        userName: user.userName,
+        userRole: user.role
       }
     };
+
+    console.log("로그인 성공 ....:",data);
 
     return helpers.jwtSign(data);
   }
