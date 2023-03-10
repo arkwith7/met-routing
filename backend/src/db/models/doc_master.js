@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const doc_master = sequelize.define(
     'doc_master',
     {
@@ -14,32 +14,32 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true,
       },
 
-doc_name: {
+      doc_name: {
         type: DataTypes.TEXT,
 
       },
 
-doc_class_cd: {
+      doc_class_cd: {
         type: DataTypes.TEXT,
 
       },
 
-doc_subclass_cd: {
+      doc_subclass_cd: {
         type: DataTypes.TEXT,
 
       },
 
-doc_class_name: {
+      doc_class_name: {
         type: DataTypes.TEXT,
 
       },
 
-doc_subclass_name: {
+      doc_subclass_name: {
         type: DataTypes.TEXT,
 
       },
 
-is_extract: {
+      is_extract: {
         type: DataTypes.BOOLEAN,
 
         allowNull: false,
@@ -47,12 +47,12 @@ is_extract: {
 
       },
 
-doc_name_alias: {
+      doc_name_alias: {
         type: DataTypes.TEXT,
 
       },
 
-doc_keyword: {
+      doc_keyword: {
         type: DataTypes.TEXT,
 
       },
@@ -83,4 +83,5 @@ doc_keyword: {
 
   return doc_master;
 };
+
 

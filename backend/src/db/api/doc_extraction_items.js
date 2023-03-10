@@ -10,64 +10,63 @@ const Op = Sequelize.Op;
 module.exports = class Doc_extraction_itemsDBApi {
 
   static async create(data, options) {
-  const currentUser = (options && options.currentUser) || { id: null };
-  const transaction = (options && options.transaction) || undefined;
+    const currentUser = (options && options.currentUser) || { id: null };
+    const transaction = (options && options.transaction) || undefined;
 
-  const doc_extraction_items = await db.doc_extraction_items.create(
-  {
-  id: data.id || undefined,
+    const doc_extraction_items = await db.doc_extraction_items.create(
+      {
+        id: data.id || undefined,
 
-    item_no: data.item_no
-    ||
-    null
-,
+        item_no: data.item_no
+          ||
+          null
+        ,
 
-    item_label: data.item_label
-    ||
-    null
-,
+        item_label: data.item_label
+          ||
+          null
+        ,
 
-    item_value: data.item_value
-    ||
-    null
-,
+        item_value: data.item_value
+          ||
+          null
+        ,
 
-    item_type: data.item_type
-    ||
-    null
-,
+        item_type: data.item_type
+          ||
+          null
+        ,
 
-    item_len: data.item_len
-    ||
-    null
-,
+        item_len: data.item_len
+          ||
+          null
+        ,
 
-    befor_desc: data.befor_desc
-    ||
-    null
-,
+        befor_desc: data.befor_desc
+          ||
+          null
+        ,
 
-    after_desc: data.after_desc
-    ||
-    null
-,
+        after_desc: data.after_desc
+          ||
+          null
+        ,
 
-  importHash: data.importHash || null,
-  createdById: currentUser.id,
-  updatedById: currentUser.id,
-  },
-  { transaction },
-  );
+        createdById: currentUser.id,
+        updatedById: currentUser.id,
+      },
+      { transaction },
+    );
 
     await doc_extraction_items.setDoc_name(data.doc_name || null, {
-    transaction,
+      transaction,
     });
 
-  return doc_extraction_items;
+    return doc_extraction_items;
   }
 
   static async update(id, data, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const doc_extraction_items = await db.doc_extraction_items.findByPk(id, {
@@ -78,43 +77,43 @@ module.exports = class Doc_extraction_itemsDBApi {
       {
 
         item_no: data.item_no
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         item_label: data.item_label
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         item_value: data.item_value
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         item_type: data.item_type
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         item_len: data.item_len
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         befor_desc: data.befor_desc
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         after_desc: data.after_desc
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         updatedById: currentUser.id,
       },
-      {transaction},
+      { transaction },
     );
 
     await doc_extraction_items.setDoc_name(data.doc_name || null, {
@@ -125,7 +124,7 @@ module.exports = class Doc_extraction_itemsDBApi {
   }
 
   static async remove(id, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const doc_extraction_items = await db.doc_extraction_items.findByPk(id, options);
@@ -155,7 +154,7 @@ module.exports = class Doc_extraction_itemsDBApi {
       return doc_extraction_items;
     }
 
-    const output = doc_extraction_items.get({plain: true});
+    const output = doc_extraction_items.get({ plain: true });
 
     output.doc_name = await doc_extraction_items.getDoc_name({
       transaction
@@ -298,12 +297,12 @@ module.exports = class Doc_extraction_itemsDBApi {
 
       if (filter.doc_name) {
         var listItems = filter.doc_name.split('|').map(item => {
-          return  Utils.uuid(item)
+          return Utils.uuid(item)
         });
 
         where = {
           ...where,
-          doc_nameId: {[Op.or]: listItems}
+          doc_nameId: { [Op.or]: listItems }
         };
       }
 
@@ -332,35 +331,37 @@ module.exports = class Doc_extraction_itemsDBApi {
       }
     }
 
-    let { rows, count } = options?.countOnly ? {rows: [], count: await db.doc_extraction_items.count({
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
-    )} : await db.doc_extraction_items.findAndCountAll(
-        {
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
+    let { rows, count } = options?.countOnly ? {
+      rows: [], count: await db.doc_extraction_items.count({
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
+      )
+    } : await db.doc_extraction_items.findAndCountAll(
+      {
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
     );
 
-//    rows = await this._fillWithRelationsAndFilesForRows(
-//      rows,
-//      options,
-//    );
+    //    rows = await this._fillWithRelationsAndFilesForRows(
+    //      rows,
+    //      options,
+    //    );
 
     return { rows, count };
   }
@@ -382,7 +383,7 @@ module.exports = class Doc_extraction_itemsDBApi {
     }
 
     const records = await db.doc_extraction_items.findAll({
-      attributes: [ 'id', 'id' ],
+      attributes: ['id', 'id'],
       where,
       limit: limit ? Number(limit) : undefined,
       orderBy: [['id', 'ASC']],

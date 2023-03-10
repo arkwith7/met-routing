@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const users = sequelize.define(
     'users',
     {
@@ -14,40 +14,40 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true,
       },
 
-userName: {
+      userName: {
         type: DataTypes.TEXT,
 
       },
 
-korName: {
+      korName: {
         type: DataTypes.TEXT,
 
       },
 
-phoneNumber: {
+      phoneNumber: {
         type: DataTypes.TEXT,
 
       },
 
-email: {
+      email: {
         type: DataTypes.TEXT,
 
       },
 
-role: {
+      role: {
         type: DataTypes.ENUM,
 
         values: [
 
-"admin",
+          "admin",
 
-"user"
+          "user"
 
         ],
 
       },
 
-disabled: {
+      disabled: {
         type: DataTypes.BOOLEAN,
 
         allowNull: false,
@@ -55,12 +55,12 @@ disabled: {
 
       },
 
-password: {
+      password: {
         type: DataTypes.TEXT,
 
       },
 
-emailVerified: {
+      emailVerified: {
         type: DataTypes.BOOLEAN,
 
         allowNull: false,
@@ -68,27 +68,27 @@ emailVerified: {
 
       },
 
-emailVerificationToken: {
+      emailVerificationToken: {
         type: DataTypes.TEXT,
 
       },
 
-emailVerificationTokenExpiresAt: {
+      emailVerificationTokenExpiresAt: {
         type: DataTypes.DATE,
 
       },
 
-passwordResetToken: {
+      passwordResetToken: {
         type: DataTypes.TEXT,
 
       },
 
-passwordResetTokenExpiresAt: {
+      passwordResetTokenExpiresAt: {
         type: DataTypes.DATE,
 
       },
 
-provider: {
+      provider: {
         type: DataTypes.TEXT,
 
       },
@@ -127,26 +127,26 @@ provider: {
     });
   };
 
-    users.beforeCreate((users, options) => {
-        users = trimStringFields(users);
+  users.beforeCreate((users, options) => {
+    users = trimStringFields(users);
 
     if (users.provider !== providers.LOCAL && Object.values(providers).indexOf(users.provider) > -1) {
-        users.emailVerified = true;
+      users.emailVerified = true;
 
-        if (!users.password) {
-            const password = crypto
-                .randomBytes(20)
-                .toString('hex');
+      if (!users.password) {
+        const password = crypto
+          .randomBytes(20)
+          .toString('hex');
 
-            const hashedPassword = bcrypt.hashSync(
-            password,
-            config.bcrypt.saltRounds,
+        const hashedPassword = bcrypt.hashSync(
+          password,
+          config.bcrypt.saltRounds,
         );
 
-            users.password = hashedPassword
-            }
-        }
-    });
+        users.password = hashedPassword
+      }
+    }
+  });
 
   users.beforeUpdate((users, options) => {
     users = trimStringFields(users);

@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const doc_extraction_items = sequelize.define(
     'doc_extraction_items',
     {
@@ -13,37 +13,37 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-item_no: {
+      item_no: {
         type: DataTypes.INTEGER,
 
       },
 
-item_label: {
+      item_label: {
         type: DataTypes.TEXT,
 
       },
 
-item_value: {
+      item_value: {
         type: DataTypes.TEXT,
 
       },
 
-item_type: {
+      item_type: {
         type: DataTypes.TEXT,
 
       },
 
-item_len: {
+      item_len: {
         type: DataTypes.TEXT,
 
       },
 
-befor_desc: {
+      befor_desc: {
         type: DataTypes.TEXT,
 
       },
 
-after_desc: {
+      after_desc: {
         type: DataTypes.TEXT,
 
       },

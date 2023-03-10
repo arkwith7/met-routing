@@ -46,7 +46,7 @@ const actions = {
         dispatch({
           type: 'DOC_MASTER_FORM_CREATE_SUCCESS',
         });
-        showSnackbar({ type: 'success', message: 'Doc_master created' });
+        showSnackbar({ type: 'success', message: 'DOCR 서류정보가 등록되었습니다.' });
         dispatch(push('/admin/doc_master'));
       })
     } catch (error) {

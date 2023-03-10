@@ -29,7 +29,7 @@ module.exports = class FileDBApi {
 
   static async _addFiles(relation, files, options) {
     const transaction = (options && options.transaction) || undefined;
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
 
     const inexistentFiles = files.filter(
       (file) => !!file.new,
@@ -70,8 +70,8 @@ module.exports = class FileDBApi {
         id: {
           [db.Sequelize.Op
             .notIn]: files
-            .filter((file) => !file.new)
-            .map((file) => file.id)
+              .filter((file) => !file.new)
+              .map((file) => file.id)
         },
       },
       transaction,

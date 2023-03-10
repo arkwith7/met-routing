@@ -10,51 +10,50 @@ const Op = Sequelize.Op;
 module.exports = class Ocr_logDBApi {
 
   static async create(data, options) {
-  const currentUser = (options && options.currentUser) || { id: null };
-  const transaction = (options && options.transaction) || undefined;
+    const currentUser = (options && options.currentUser) || { id: null };
+    const transaction = (options && options.transaction) || undefined;
 
-  const ocr_log = await db.ocr_log.create(
-  {
-  id: data.id || undefined,
+    const ocr_log = await db.ocr_log.create(
+      {
+        id: data.id || undefined,
 
-    ocr_time: data.ocr_time
-    ||
-    null
-,
+        ocr_time: data.ocr_time
+          ||
+          null
+        ,
 
-    registration_no: data.registration_no
-    ||
-    null
-,
+        registration_no: data.registration_no
+          ||
+          null
+        ,
 
-    doc_name: data.doc_name
-    ||
-    null
-,
+        doc_name: data.doc_name
+          ||
+          null
+        ,
 
-    is_success: data.is_success
-    ||
-    false
+        is_success: data.is_success
+          ||
+          false
 
-,
+        ,
 
-    is_classification: data.is_classification
-    ||
-    null
-,
+        is_classification: data.is_classification
+          ||
+          null
+        ,
 
-  importHash: data.importHash || null,
-  createdById: currentUser.id,
-  updatedById: currentUser.id,
-  },
-  { transaction },
-  );
+        createdById: currentUser.id,
+        updatedById: currentUser.id,
+      },
+      { transaction },
+    );
 
-  return ocr_log;
+    return ocr_log;
   }
 
   static async update(id, data, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const ocr_log = await db.ocr_log.findByPk(id, {
@@ -65,41 +64,41 @@ module.exports = class Ocr_logDBApi {
       {
 
         ocr_time: data.ocr_time
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         registration_no: data.registration_no
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         doc_name: data.doc_name
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         is_success: data.is_success
-        ||
-        false
+          ||
+          false
 
-,
+        ,
 
         is_classification: data.is_classification
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         updatedById: currentUser.id,
       },
-      {transaction},
+      { transaction },
     );
 
     return ocr_log;
   }
 
   static async remove(id, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const ocr_log = await db.ocr_log.findByPk(id, options);
@@ -129,7 +128,7 @@ module.exports = class Ocr_logDBApi {
       return ocr_log;
     }
 
-    const output = ocr_log.get({plain: true});
+    const output = ocr_log.get({ plain: true });
 
     return output;
   }
@@ -260,35 +259,37 @@ module.exports = class Ocr_logDBApi {
       }
     }
 
-    let { rows, count } = options?.countOnly ? {rows: [], count: await db.ocr_log.count({
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
-    )} : await db.ocr_log.findAndCountAll(
-        {
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
+    let { rows, count } = options?.countOnly ? {
+      rows: [], count: await db.ocr_log.count({
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
+      )
+    } : await db.ocr_log.findAndCountAll(
+      {
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
     );
 
-//    rows = await this._fillWithRelationsAndFilesForRows(
-//      rows,
-//      options,
-//    );
+    //    rows = await this._fillWithRelationsAndFilesForRows(
+    //      rows,
+    //      options,
+    //    );
 
     return { rows, count };
   }
@@ -310,7 +311,7 @@ module.exports = class Ocr_logDBApi {
     }
 
     const records = await db.ocr_log.findAll({
-      attributes: [ 'id', 'id' ],
+      attributes: ['id', 'id'],
       where,
       limit: limit ? Number(limit) : undefined,
       orderBy: [['id', 'ASC']],

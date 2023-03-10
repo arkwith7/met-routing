@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const insurance_cd = sequelize.define(
     'insurance_cd',
     {
@@ -13,17 +13,17 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-code: {
+      code: {
         type: DataTypes.TEXT,
 
       },
 
-code_name: {
+      code_name: {
         type: DataTypes.TEXT,
 
       },
 
-is_db: {
+      is_db: {
         type: DataTypes.BOOLEAN,
 
         allowNull: false,
@@ -31,7 +31,7 @@ is_db: {
 
       },
 
-is_operation: {
+      is_operation: {
         type: DataTypes.TEXT,
 
       },

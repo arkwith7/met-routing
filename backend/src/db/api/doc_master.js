@@ -10,66 +10,40 @@ const Op = Sequelize.Op;
 module.exports = class Doc_masterDBApi {
 
   static async create(data, options) {
-  const currentUser = (options && options.currentUser) || { id: null };
-  const transaction = (options && options.transaction) || undefined;
+    const currentUser = (options && options.currentUser) || { id: null };
+    const transaction = (options && options.transaction) || undefined;
 
-  const doc_master = await db.doc_master.create(
-  {
-  id: data.id || undefined,
+    const doc_master = await db.doc_master.create(
+      {
+        id: data.id || undefined,
 
-    doc_name: data.doc_name
-    ||
-    null
-,
+        doc_name: data.doc_name || null,
 
-    doc_class_cd: data.doc_class_cd
-    ||
-    null
-,
+        doc_class_cd: data.doc_class_cd || null,
 
-    doc_subclass_cd: data.doc_subclass_cd
-    ||
-    null
-,
+        doc_subclass_cd: data.doc_subclass_cd || null,
 
-    doc_class_name: data.doc_class_name
-    ||
-    null
-,
+        doc_class_name: data.doc_class_name || null,
 
-    doc_subclass_name: data.doc_subclass_name
-    ||
-    null
-,
+        doc_subclass_name: data.doc_subclass_name || null,
 
-    is_extract: data.is_extract
-    ||
-    false
+        is_extract: data.is_extract || false,
 
-,
+        doc_name_alias: data.doc_name_alias || null,
 
-    doc_name_alias: data.doc_name_alias
-    ||
-    null
-,
+        doc_keyword: data.doc_keyword || null,
 
-    doc_keyword: data.doc_keyword
-    ||
-    null
-,
+        createdById: currentUser.id,
+        updatedById: currentUser.id,
+      },
+      { transaction },
+    );
 
-  importHash: data.importHash || null,
-  createdById: currentUser.id,
-  updatedById: currentUser.id,
-  },
-  { transaction },
-  );
-
-  return doc_master;
+    return doc_master;
   }
 
   static async update(id, data, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const doc_master = await db.doc_master.findByPk(id, {
@@ -79,57 +53,54 @@ module.exports = class Doc_masterDBApi {
     await doc_master.update(
       {
 
-        doc_name: data.doc_name
-        ||
-        null
-,
+        doc_name: data.doc_name || null,
 
         doc_class_cd: data.doc_class_cd
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         doc_subclass_cd: data.doc_subclass_cd
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         doc_class_name: data.doc_class_name
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         doc_subclass_name: data.doc_subclass_name
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         is_extract: data.is_extract
-        ||
-        false
+          ||
+          false
 
-,
+        ,
 
         doc_name_alias: data.doc_name_alias
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         doc_keyword: data.doc_keyword
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         updatedById: currentUser.id,
       },
-      {transaction},
+      { transaction },
     );
 
     return doc_master;
   }
 
   static async remove(id, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const doc_master = await db.doc_master.findByPk(id, options);
@@ -159,7 +130,7 @@ module.exports = class Doc_masterDBApi {
       return doc_master;
     }
 
-    const output = doc_master.get({plain: true});
+    const output = doc_master.get({ plain: true });
 
     return output;
   }
@@ -310,35 +281,37 @@ module.exports = class Doc_masterDBApi {
       }
     }
 
-    let { rows, count } = options?.countOnly ? {rows: [], count: await db.doc_master.count({
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
-    )} : await db.doc_master.findAndCountAll(
-        {
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
+    let { rows, count } = options?.countOnly ? {
+      rows: [], count: await db.doc_master.count({
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
+      )
+    } : await db.doc_master.findAndCountAll(
+      {
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
     );
 
-//    rows = await this._fillWithRelationsAndFilesForRows(
-//      rows,
-//      options,
-//    );
+    //    rows = await this._fillWithRelationsAndFilesForRows(
+    //      rows,
+    //      options,
+    //    );
 
     return { rows, count };
   }
@@ -360,7 +333,7 @@ module.exports = class Doc_masterDBApi {
     }
 
     const records = await db.doc_master.findAll({
-      attributes: [ 'id', 'id' ],
+      attributes: ['id', 'id'],
       where,
       limit: limit ? Number(limit) : undefined,
       orderBy: [['id', 'ASC']],

@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const ocr_log = sequelize.define(
     'ocr_log',
     {
@@ -13,22 +13,22 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-ocr_time: {
+      ocr_time: {
         type: DataTypes.DATE,
 
       },
 
-registration_no: {
+      registration_no: {
         type: DataTypes.TEXT,
 
       },
 
-doc_name: {
+      doc_name: {
         type: DataTypes.TEXT,
 
       },
 
-is_success: {
+      is_success: {
         type: DataTypes.BOOLEAN,
 
         allowNull: false,
@@ -36,7 +36,7 @@ is_success: {
 
       },
 
-is_classification: {
+      is_classification: {
         type: DataTypes.TEXT,
 
       },

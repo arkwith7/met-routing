@@ -10,46 +10,45 @@ const Op = Sequelize.Op;
 module.exports = class Insurance_cdDBApi {
 
   static async create(data, options) {
-  const currentUser = (options && options.currentUser) || { id: null };
-  const transaction = (options && options.transaction) || undefined;
+    const currentUser = (options && options.currentUser) || { id: null };
+    const transaction = (options && options.transaction) || undefined;
 
-  const insurance_cd = await db.insurance_cd.create(
-  {
-  id: data.id || undefined,
+    const insurance_cd = await db.insurance_cd.create(
+      {
+        id: data.id || undefined,
 
-    code: data.code
-    ||
-    null
-,
+        code: data.code
+          ||
+          null
+        ,
 
-    code_name: data.code_name
-    ||
-    null
-,
+        code_name: data.code_name
+          ||
+          null
+        ,
 
-    is_db: data.is_db
-    ||
-    false
+        is_db: data.is_db
+          ||
+          false
 
-,
+        ,
 
-    is_operation: data.is_operation
-    ||
-    null
-,
+        is_operation: data.is_operation
+          ||
+          null
+        ,
 
-  importHash: data.importHash || null,
-  createdById: currentUser.id,
-  updatedById: currentUser.id,
-  },
-  { transaction },
-  );
+        createdById: currentUser.id,
+        updatedById: currentUser.id,
+      },
+      { transaction },
+    );
 
-  return insurance_cd;
+    return insurance_cd;
   }
 
   static async update(id, data, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const insurance_cd = await db.insurance_cd.findByPk(id, {
@@ -60,36 +59,36 @@ module.exports = class Insurance_cdDBApi {
       {
 
         code: data.code
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         code_name: data.code_name
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         is_db: data.is_db
-        ||
-        false
+          ||
+          false
 
-,
+        ,
 
         is_operation: data.is_operation
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         updatedById: currentUser.id,
       },
-      {transaction},
+      { transaction },
     );
 
     return insurance_cd;
   }
 
   static async remove(id, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const insurance_cd = await db.insurance_cd.findByPk(id, options);
@@ -119,7 +118,7 @@ module.exports = class Insurance_cdDBApi {
       return insurance_cd;
     }
 
-    const output = insurance_cd.get({plain: true});
+    const output = insurance_cd.get({ plain: true });
 
     return output;
   }
@@ -226,35 +225,37 @@ module.exports = class Insurance_cdDBApi {
       }
     }
 
-    let { rows, count } = options?.countOnly ? {rows: [], count: await db.insurance_cd.count({
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
-    )} : await db.insurance_cd.findAndCountAll(
-        {
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
+    let { rows, count } = options?.countOnly ? {
+      rows: [], count: await db.insurance_cd.count({
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
+      )
+    } : await db.insurance_cd.findAndCountAll(
+      {
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
     );
 
-//    rows = await this._fillWithRelationsAndFilesForRows(
-//      rows,
-//      options,
-//    );
+    //    rows = await this._fillWithRelationsAndFilesForRows(
+    //      rows,
+    //      options,
+    //    );
 
     return { rows, count };
   }
@@ -276,7 +277,7 @@ module.exports = class Insurance_cdDBApi {
     }
 
     const records = await db.insurance_cd.findAll({
-      attributes: [ 'id', 'id' ],
+      attributes: ['id', 'id'],
       where,
       limit: limit ? Number(limit) : undefined,
       orderBy: [['id', 'ASC']],

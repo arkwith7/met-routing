@@ -10,50 +10,38 @@ const Op = Sequelize.Op;
 module.exports = class Disease_cdDBApi {
 
   static async create(data, options) {
-  const currentUser = (options && options.currentUser) || { id: null };
-  const transaction = (options && options.transaction) || undefined;
+    const currentUser = (options && options.currentUser) || { id: null };
+    const transaction = (options && options.transaction) || undefined;
 
-  const disease_cd = await db.disease_cd.create(
-  {
-  id: data.id || undefined,
+    console.log("질병코드정보 등록 시작...currentUser", currentUser)
 
-    code: data.code
-    ||
-    null
-,
+    const disease_cd = await db.disease_cd.create(
+      {
+        id: data.id || undefined,
 
-    code_name: data.code_name
-    ||
-    null
-,
+        code: data.code || null,
 
-    code_name_alias: data.code_name_alias
-    ||
-    null
-,
+        code_name: data.code_name || null,
 
-    body_part: data.body_part
-    ||
-    null
-,
+        code_name_alias: data.code_name_alias || null,
 
-    left_or_right: data.left_or_right
-    ||
-    null
-,
+        body_part: data.body_part || null,
 
-  importHash: data.importHash || null,
-  createdById: currentUser.id,
-  updatedById: currentUser.id,
-  },
-  { transaction },
-  );
+        left_or_right: data.left_or_right || null,
+        importHash: data.importHash || null,
 
-  return disease_cd;
+        createdById: currentUser.id,
+        updatedById: currentUser.id,
+      },
+      { transaction },
+    );
+    console.log("질병코드정보 등록 종료...disease_cd", disease_cd)
+
+    return disease_cd;
   }
 
   static async update(id, data, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const disease_cd = await db.disease_cd.findByPk(id, {
@@ -64,40 +52,40 @@ module.exports = class Disease_cdDBApi {
       {
 
         code: data.code
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         code_name: data.code_name
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         code_name_alias: data.code_name_alias
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         body_part: data.body_part
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         left_or_right: data.left_or_right
-        ||
-        null
-,
+          ||
+          null
+        ,
 
         updatedById: currentUser.id,
       },
-      {transaction},
+      { transaction },
     );
 
     return disease_cd;
   }
 
   static async remove(id, options) {
-    const currentUser = (options && options.currentUser) || {id: null};
+    const currentUser = (options && options.currentUser) || { id: null };
     const transaction = (options && options.transaction) || undefined;
 
     const disease_cd = await db.disease_cd.findByPk(id, options);
@@ -127,7 +115,7 @@ module.exports = class Disease_cdDBApi {
       return disease_cd;
     }
 
-    const output = disease_cd.get({plain: true});
+    const output = disease_cd.get({ plain: true });
 
     return output;
   }
@@ -249,35 +237,37 @@ module.exports = class Disease_cdDBApi {
       }
     }
 
-    let { rows, count } = options?.countOnly ? {rows: [], count: await db.disease_cd.count({
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
-    )} : await db.disease_cd.findAndCountAll(
-        {
-            where,
-            include,
-            distinct: true,
-            limit: limit ? Number(limit) : undefined,
-            offset: offset ? Number(offset) : undefined,
-            order: (filter.field && filter.sort)
-                ? [[filter.field, filter.sort]]
-                : [['createdAt', 'desc']],
-            transaction,
-        },
+    let { rows, count } = options?.countOnly ? {
+      rows: [], count: await db.disease_cd.count({
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
+      )
+    } : await db.disease_cd.findAndCountAll(
+      {
+        where,
+        include,
+        distinct: true,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+        order: (filter.field && filter.sort)
+          ? [[filter.field, filter.sort]]
+          : [['createdAt', 'desc']],
+        transaction,
+      },
     );
 
-//    rows = await this._fillWithRelationsAndFilesForRows(
-//      rows,
-//      options,
-//    );
+    //    rows = await this._fillWithRelationsAndFilesForRows(
+    //      rows,
+    //      options,
+    //    );
 
     return { rows, count };
   }
@@ -299,7 +289,7 @@ module.exports = class Disease_cdDBApi {
     }
 
     const records = await db.disease_cd.findAll({
-      attributes: [ 'id', 'id' ],
+      attributes: ['id', 'id'],
       where,
       limit: limit ? Number(limit) : undefined,
       orderBy: [['id', 'ASC']],

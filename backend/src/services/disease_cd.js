@@ -3,6 +3,7 @@ const Disease_cdDBApi = require('../db/api/disease_cd');
 
 module.exports = class Disease_cdService {
   static async create(data, currentUser) {
+    console.log("질병코드정보 전달 data",data)
     const transaction = await db.sequelize.transaction();
     try {
       await Disease_cdDBApi.create(
