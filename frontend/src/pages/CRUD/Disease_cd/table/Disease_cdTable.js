@@ -60,7 +60,7 @@ const Disease_cdTable = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
 
   const [filters, setFilters] = React.useState([
-    {label: 'Code', title: 'code'},{label: 'Code Name', title: 'code_name'},{label: 'Code Name Alias', title: 'code_name_alias'},{label: 'Body Part', title: 'body_part'},{label: 'Left Or Right', title: 'left_or_right'},
+    {label: '코드', title: 'code'},{label: '질병명', title: 'code_name'},{label: '유사질병명', title: 'code_name_alias'},{label: '신체부위', title: 'body_part'},{label: '좌우구분', title: 'left_or_right'},
 
   ]);
 
