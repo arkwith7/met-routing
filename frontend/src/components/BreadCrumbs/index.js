@@ -85,7 +85,7 @@ const BreadCrumbs = () => {
                         {length === index + 1 ?
                             leftTitle(item) :
                             <Link to={middlewareUrl} style={{ color: 'unset', textDecoration: 'none' }}>
-                                {item}
+                                {leftTitle(item)}
                             </Link>
                         }
                     </Typography>
