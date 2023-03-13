@@ -19,6 +19,7 @@ const InputFormItem = (props) => {
     errorMessage,
     multiline,
     wysiwyg,
+    disabled,
     required = false,
   } = props;
 
@@ -48,6 +49,7 @@ const InputFormItem = (props) => {
               value={form.values[name] || ''}
               placeholder={placeholder || undefined}
               autoFocus={autoFocus || undefined}
+              disabled={disabled || undefined}
               autoComplete={autoComplete || undefined}
               error={FormErrors.validateStatus(form, name, errorMessage)}
               {...inputProps}
@@ -86,6 +88,7 @@ InputFormItem.propTypes = {
   type: PropTypes.string,
   hint: PropTypes.string,
   autoFocus: PropTypes.bool,
+  disabled: PropTypes.bool,
   size: PropTypes.string,
   prefix: PropTypes.string,
   placeholder: PropTypes.string,

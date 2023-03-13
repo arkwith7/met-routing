@@ -13,6 +13,7 @@ import {
   Apps as CoreIcon,
   Description as DocumentationIcon,
   AccountCircle as ProfileIcon,
+  PlayArrow as PlayArrowIcon,
 } from '@mui/icons-material'
 
 // styles
@@ -224,7 +225,8 @@ function Sidebar({ location, structure }) {
                   children: [
                     {
                       label: "Quick start",
-                      link: "/documentation/getting-started/quick-start"
+                      link: "/documentation/getting-started/quick-start",
+                      icon: <PlayArrowIcon/>
                     }
                   ]
                 },

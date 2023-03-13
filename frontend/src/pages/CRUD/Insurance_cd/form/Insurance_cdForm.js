@@ -75,6 +75,7 @@ const Insurance_cdForm = (props) => {
       <Grid item>
         <InputFormItem
           name={'code'}
+          disabled
           schema={insurance_cdFields}
 
             autoFocus
@@ -85,6 +86,7 @@ const Insurance_cdForm = (props) => {
       <Grid item>
         <InputFormItem
           name={'code_name'}
+          disabled
           schema={insurance_cdFields}
 
         />

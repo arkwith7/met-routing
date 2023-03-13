@@ -75,16 +75,15 @@ const Disease_cdForm = (props) => {
       <Grid item>
         <InputFormItem
           name={'code'}
+          disabled
           schema={disease_cdFields}
-
-            autoFocus
-
         />
       </Grid>
 
       <Grid item>
         <InputFormItem
           name={'code_name'}
+          disabled
           schema={disease_cdFields}
 
         />
@@ -94,6 +93,9 @@ const Disease_cdForm = (props) => {
         <InputFormItem
           name={'code_name_alias'}
           schema={disease_cdFields}
+
+          autoFocus
+
 
         />
       </Grid>
